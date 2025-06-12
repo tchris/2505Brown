@@ -10,7 +10,7 @@
 
 
 <center><img src="img/banner.jpg"></center><br>
-<h1>Welcome!</h1>
+<h1>Welcome! I am a robot!</h1>
 
 
 <center>
