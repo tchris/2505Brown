@@ -49,6 +49,31 @@ body {
     text-align: left;
 }
 
+.dual-section-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dual-section-container section {
+    flex: 1;
+    background-color: #111;
+    color: #03ed0f;
+    padding: 20px;
+    border: 1px solid #03ed0f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+/* Optional: Limit each section to half screen width */
+.left-panel, .right-panel {
+    max-width: 50%;
+}
+
+
 /* Header Styling */
 header {
     background-color: #007BFF;
