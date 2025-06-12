@@ -26,9 +26,9 @@
     width: 640px;
     height: 320px;
     object-fit: cover;
-    border-radius: 1%;
+    border-radius: 20px;
     border: 2px solid #00ddff;
-    box-shadow: 0 0 12px #0000ff;
+    box-shadow: 0 0 60px #0000ff;
     margin-bottom: 1rem;
     display: block;
     margin-left: auto;
