@@ -1,0 +1,57 @@
+[21-May-2025 02:16:46 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fotinfo_2505Br5own_webuser'@'localhost' (using password: YES) in /home/space/public_html/2505Brown/database.php:9
+Stack trace:
+#0 /home/space/public_html/2505Brown/database.php(9): mysqli_connect()
+#1 /home/space/public_html/2505Brown/storeallproducts.php(28): require_once('/home/space/pub...')
+#2 {main}
+  thrown in /home/space/public_html/2505Brown/database.php on line 9
+[21-May-2025 02:19:00 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fotinfo_2505Br5own_webuser'@'localhost' (using password: YES) in /home/space/public_html/2505Brown/database.php:9
+Stack trace:
+#0 /home/space/public_html/2505Brown/database.php(9): mysqli_connect()
+#1 /home/space/public_html/2505Brown/storeallproducts.php(28): require_once('/home/space/pub...')
+#2 {main}
+  thrown in /home/space/public_html/2505Brown/database.php on line 9
+[21-May-2025 02:20:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fotinfo_2505Br5own_webuser'@'localhost' (using password: YES) in /home/space/public_html/2505Brown/database.php:9
+Stack trace:
+#0 /home/space/public_html/2505Brown/database.php(9): mysqli_connect()
+#1 /home/space/public_html/2505Brown/storeallproducts.php(28): require_once('/home/space/pub...')
+#2 {main}
+  thrown in /home/space/public_html/2505Brown/database.php on line 9
+[21-May-2025 02:20:59 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fotinfo_2505Br5own_webuser'@'localhost' (using password: YES) in /home/space/public_html/2505Brown/database.php:9
+Stack trace:
+#0 /home/space/public_html/2505Brown/database.php(9): mysqli_connect()
+#1 /home/space/public_html/2505Brown/storeallproducts.php(28): require_once('/home/space/pub...')
+#2 {main}
+  thrown in /home/space/public_html/2505Brown/database.php on line 9
+[11-Jun-2025 00:30:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'space_2505Brown.product' doesn't exist in /home/space/public_html/2505Brown/storeoneproduct.php:30
+Stack trace:
+#0 /home/space/public_html/2505Brown/storeoneproduct.php(30): mysqli->query()
+#1 {main}
+  thrown in /home/space/public_html/2505Brown/storeoneproduct.php on line 30
+[11-Jun-2025 00:30:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'space_2505Brown.product' doesn't exist in /home/space/public_html/2505Brown/storeoneproduct.php:30
+Stack trace:
+#0 /home/space/public_html/2505Brown/storeoneproduct.php(30): mysqli->query()
+#1 {main}
+  thrown in /home/space/public_html/2505Brown/storeoneproduct.php on line 30
+[11-Jun-2025 00:44:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'space_2505Brown.product' doesn't exist in /home/space/public_html/2505Brown/storeoneproduct.php:30
+Stack trace:
+#0 /home/space/public_html/2505Brown/storeoneproduct.php(30): mysqli->query()
+#1 {main}
+  thrown in /home/space/public_html/2505Brown/storeoneproduct.php on line 30
+[11-Jun-2025 00:45:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'space_2505Brown.product' doesn't exist in /home/space/public_html/2505Brown/storeoneproduct.php:30
+Stack trace:
+#0 /home/space/public_html/2505Brown/storeoneproduct.php(30): mysqli->query()
+#1 {main}
+  thrown in /home/space/public_html/2505Brown/storeoneproduct.php on line 30
+[11-Jun-2025 00:47:11 UTC] PHP Warning:  Undefined array key "Picture" in /home/space/public_html/2505Brown/storeoneproduct.php on line 36
+[11-Jun-2025 00:47:11 UTC] PHP Warning:  Undefined array key "Name" in /home/space/public_html/2505Brown/storeoneproduct.php on line 37
+[11-Jun-2025 00:47:11 UTC] PHP Warning:  Undefined array key "Price" in /home/space/public_html/2505Brown/storeoneproduct.php on line 37
+[11-Jun-2025 00:47:11 UTC] PHP Warning:  Undefined array key "Descr" in /home/space/public_html/2505Brown/storeoneproduct.php on line 38
+[11-Jun-2025 00:47:51 UTC] PHP Warning:  Undefined array key "Picture" in /home/space/public_html/2505Brown/storeoneproduct.php on line 36
+[11-Jun-2025 00:47:51 UTC] PHP Warning:  Undefined array key "Name" in /home/space/public_html/2505Brown/storeoneproduct.php on line 37
+[11-Jun-2025 00:47:51 UTC] PHP Warning:  Undefined array key "Price" in /home/space/public_html/2505Brown/storeoneproduct.php on line 37
+[11-Jun-2025 00:47:51 UTC] PHP Warning:  Undefined array key "Descr" in /home/space/public_html/2505Brown/storeoneproduct.php on line 38
+[11-Jun-2025 00:48:33 UTC] PHP Warning:  Undefined array key "Picture" in /home/space/public_html/2505Brown/storeoneproduct.php on line 36
+[11-Jun-2025 00:48:33 UTC] PHP Warning:  Undefined array key "Name" in /home/space/public_html/2505Brown/storeoneproduct.php on line 37
+[11-Jun-2025 00:48:33 UTC] PHP Warning:  Undefined array key "Price" in /home/space/public_html/2505Brown/storeoneproduct.php on line 37
+[11-Jun-2025 00:48:33 UTC] PHP Warning:  Undefined array key "Descr" in /home/space/public_html/2505Brown/storeoneproduct.php on line 38
+[12-Jun-2025 15:51:28 UTC] PHP Warning:  Undefined variable $description in /home/space/public_html/2505Brown/index.php on line 12

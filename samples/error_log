@@ -1,0 +1,10 @@
+[21-May-2025 02:11:04 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'fotinfo_tchris.menu' doesn't exist in /home/space/public_html/2505Brown/samples/storeallproducts.php:32
+Stack trace:
+#0 /home/space/public_html/2505Brown/samples/storeallproducts.php(32): mysqli->query()
+#1 {main}
+  thrown in /home/space/public_html/2505Brown/samples/storeallproducts.php on line 32
+[21-May-2025 02:15:29 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'fotinfo_tchris.menu' doesn't exist in /home/space/public_html/2505Brown/samples/storeallproducts.php:32
+Stack trace:
+#0 /home/space/public_html/2505Brown/samples/storeallproducts.php(32): mysqli->query()
+#1 {main}
+  thrown in /home/space/public_html/2505Brown/samples/storeallproducts.php on line 32
