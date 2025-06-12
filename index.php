@@ -15,7 +15,7 @@
         <div class="floating-welcome">
             <img src="img/tchrispizza.jpg" class="avatar">
             <h1>TRON Bike Shop</h1>
-            <p class="title">Hardtail | Softtail | Accessory</p>
+            <p class="title">Hardtail | Softtail | Accessories Galore</p>
         </div>
 
         <!-- Experience -->
