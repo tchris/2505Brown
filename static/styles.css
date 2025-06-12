@@ -81,7 +81,7 @@ h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: #00ddff;
-    text-shadow: 60px #0000ff;
+    text-shadow: 0 60px 0 60px #0000ff;
 }
 
 p {
