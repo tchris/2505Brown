@@ -82,6 +82,36 @@ body {
     height: 100%;
 }
 
+.bike-card {
+    background-color: #000;
+    border: 2px solid #00ddff;
+    box-shadow: 0 0 12px #0000ff;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bike-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px #00ddff, 0 0 30px #0000ff;
+}
+
+.bike-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.bike-card p {
+    margin: 0.5rem 0;
+    color: #00ddff;
+    font-size: 1rem;
+}
+
+
 
 /* Header Styling */
 header {
