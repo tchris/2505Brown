@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require 'database.php';?>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TRON Cycles – Bike Shop of the Future</title>
     <link rel="stylesheet" href="static/styles.css">
+    <?php require 'database.php';?>
 </head>
 <body>   
    
@@ -24,15 +26,13 @@
     
     <section class="left-panel">
         <a href="/2505Chartreuse/storeallproducts.php">
-            <h2>Section One</h2>
-            <p>This is the first section.</p>
+            <h2>Hardtail Bikes</h2>
         </a>
     </section>
 
     <section class="right-panel">
         <a href="/2505Chartreuse/storeallproducts.php">
-            <h2>Section Two</h2>
-            <p>This is the second section.</p>
+            <h2>Fat Bikes</h2>
         </a>
     </section>
     
