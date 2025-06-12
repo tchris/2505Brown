@@ -27,8 +27,8 @@
     height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #03ed0f;
-    box-shadow: 0 0 12px #ff00ff;
+    border: 2px solid #00ddff;
+    box-shadow: 0 0 12px #0000ff;
     margin-bottom: 1rem;
     display: block;
     margin-left: auto;
@@ -60,12 +60,12 @@ body {
 
 .dual-section-container section {
     flex: 1;
-    background-color: #111;
-    color: #03ed0f;
+    background-color: #000000;
+    color: #00ddff;
     padding: 20px;
-    border: 1px solid #03ed0f;
+    border: 1px solid #00ddff;
     border-radius: 10px;
-    box-shadow: 0 0 10px #ff00ff;
+    box-shadow: 0 0 10px #0000ff;
 }
 
 /*Limit each section to half screen width */
