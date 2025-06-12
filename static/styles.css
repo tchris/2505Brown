@@ -74,6 +74,15 @@ body {
     text-align: center;
 }
 
+.panel-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+
 /* Header Styling */
 header {
     background-color: #007BFF;

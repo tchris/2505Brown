@@ -30,10 +30,19 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bi
 <main class="dual-section-container">
     
     <section class="left-panel">
-        <a href="/2505Chartreuse/storeallproducts.php">
+        <a href="/2505Chartreuse/storeallproducts.php" class="panel-link">
             <h2>Hardtail Bikes</h2>
+            <?php
+            while ($row = $hardtails->fetch_assoc()) {
+                echo '<div class="bike-card">';
+                echo '<img src="' . htmlspecialchars($row['Picture']) . '" alt="' . htmlspecialchars($row['Title']) . '" style="width:100%; border-radius:10px;">';
+                echo '<p>' . htmlspecialchars($row['Title']) . '</p>';
+                echo '</div>';
+            }
+                ?>
         </a>
     </section>
+
 
     <section class="right-panel">
         <a href="/2505Chartreuse/storeallproducts.php">
