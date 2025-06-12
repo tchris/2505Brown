@@ -68,11 +68,10 @@ body {
     box-shadow: 0 0 10px #ff00ff;
 }
 
-/* Optional: Limit each section to half screen width */
+/*Limit each section to half screen width */
 .left-panel, .right-panel {
     max-width: 50%;
 }
-
 
 /* Header Styling */
 header {
