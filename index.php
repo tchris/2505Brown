@@ -18,6 +18,11 @@
             <p>This is a basic static HTML template with external CSS for styling. Modify as needed for your project.</p>
             <a href="/2505Chartreuse/storeallproducts.php">This is a link!</a>
         </section>
+        <section>
+            <h2>About This Page</h2>
+            <p>This is a basic static HTML template with external CSS for styling. Modify as needed for your project.</p>
+            <a href="/2505Chartreuse/storeallproducts.php">This is a link!</a>
+        </section>
     </main>
 
     <footer>
