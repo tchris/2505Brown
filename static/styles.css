@@ -71,6 +71,7 @@ body {
 /*Limit each section to half screen width */
 .left-panel, .right-panel {
     max-width: 50%;
+    align-items: center;
 }
 
 /* Header Styling */
