@@ -13,9 +13,9 @@
 
         <!-- Floating Profile -->
         <div class="floating-welcome">
-            <img src="{{ url_for('static', filename='tchrispizza.jpg') }}" alt="Ideal Robot" class="avatar">
-            <h1>Ideal Robot</h1>
-            <p class="title">Cybernetic Software Engineer | AI Specialist | Dusty Suit Enthusiast</p>
+            <img src="tchrispizza.jpg" class="avatar">
+            <h1>TRON Bike Shop</h1>
+            <p class="title">Hardtail | Softtail | Accessory</p>
         </div>
 
         <!-- Experience -->
