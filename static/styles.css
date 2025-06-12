@@ -13,10 +13,10 @@
     background: #000000f1;
     padding: 1.5rem 2rem;
     border-radius: 12px;
-    border: 1px solid #03ed0f;
-    box-shadow: 0 0 20px #ff00ff;
+    border: 1px solid #00ddff;
+    box-shadow: 0 0 20px #0000ff;
     text-align: center;
-    max-width: 99%;
+    max-width: 75%;
     margin-top: 80px; 
     margin-left: auto;
     margin-right: auto;
@@ -65,6 +65,29 @@ header h1 {
 header p {
     font-size: 1.1rem;
     margin-top: 10px;
+}
+
+
+/* FONTS!!! */
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00ddff;
+    text-shadow: 0 0 10px #0000ff, 0 0 20px #00007d;
+}
+
+h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #ff00ff;
+    text-shadow: 0 0 20px #00ff0088;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #00ddff;
 }
 
 /* Main Section */
