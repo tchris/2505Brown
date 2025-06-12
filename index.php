@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require 'database.php';?>
+<?php
+require 'database.php'; // ✅ Connect once
+
+$hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail'");
+$fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bike'");
+?>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
