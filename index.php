@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>We Got Bikes!</h1>
-        <p>Your trusted source for two wheeled freedom... and your at home money pit... </p>
+        <p>Your trusted source for two wheeled freedom... and your at home money pit!!!... </p>
     </header>
 
     <main>
