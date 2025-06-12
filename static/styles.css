@@ -7,6 +7,34 @@
     box-sizing: border-box;
 }
 
+/* Floating Profile */
+.floating-welcome {
+    position: relative;
+    margin-top: -80px;
+    background: #000000f1;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid #03ed0f;
+    box-shadow: 0 0 20px #ff00ff;
+    text-align: center;
+    max-width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #03ed0f;
+    box-shadow: 0 0 12px #ff00ff;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Body Styling */
 body {
     background-color: #000000;
