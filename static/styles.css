@@ -23,8 +23,8 @@
 }
 
 .avatar {
-    width: 640px;
-    height: 320px;
+    width: 25%;
+    height: auto;
     object-fit: cover;
     border-radius: 20px;
     border: 2px solid #00ddff;
