@@ -13,7 +13,7 @@
 
         <!-- Floating Profile -->
         <div class="floating-welcome">
-            <img src="tchrispizza.jpg" class="avatar">
+            <img src="img/tchrispizza.jpg" class="avatar">
             <h1>TRON Bike Shop</h1>
             <p class="title">Hardtail | Softtail | Accessory</p>
         </div>
