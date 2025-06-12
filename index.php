@@ -23,7 +23,7 @@
 <main class="dual-section-container">
     
     <section class="left-panel">
-        <a href="/2505chartreuse/storeallproducts.php">
+        <a href="/2505Chartreuse/storeallproducts.php">
             <h2>Section One</h2>
             <p>This is the first section.</p>
         </a>
