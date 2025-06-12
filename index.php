@@ -21,15 +21,21 @@
         <!-- Experience -->
       
 <main class="dual-section-container">
+    
     <section class="left-panel">
-        <h2>Section One</h2>
-        <p>This is the first section.</p>
+        <a href="/2505chartreuse/storeallproducts.php">
+            <h2>Section One</h2>
+            <p>This is the first section.</p>
+        </a>
     </section>
 
     <section class="right-panel">
-        <h2>Section Two</h2>
-        <p>This is the second section.</p>
+        <a href="/2505Chartreuse/storeallproducts.php">
+            <h2>Section Two</h2>
+            <p>This is the second section.</p>
+        </a>
     </section>
+    
 </main>
 
         
