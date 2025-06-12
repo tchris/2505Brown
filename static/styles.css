@@ -23,10 +23,10 @@
 }
 
 .avatar {
-    width: 160px;
-    height: 160px;
+    width: 640px;
+    height: 320px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 1%;
     border: 2px solid #00ddff;
     box-shadow: 0 0 12px #0000ff;
     margin-bottom: 1rem;
