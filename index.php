@@ -1,4 +1,14 @@
-    <!-- Page Content Wrapper -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ideal Robot – Creative Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>   
+   
+   <!-- Page Content Wrapper -->
     <div class="page-wrapper">
 
         <!-- Floating Profile -->
@@ -90,3 +100,6 @@
         </div>
 
     </div> <!-- end .page-wrapper -->
+
+</body>
+</html>
