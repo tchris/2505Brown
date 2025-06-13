@@ -3,7 +3,7 @@
 <?php
 require 'database.php'; // ✅ Connect once
 $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail' ORDER BY RAND() LIMIT 1");
-$fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bike'");
+$fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bike' ORDER by RAND() LIMIT 1");
 ?>
 
 <head>
