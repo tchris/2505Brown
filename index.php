@@ -49,7 +49,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bi
         <a href="/2505Chartreuse/storeallproducts.php">
             <h2>Fat Bikes</h2>
             <?php
-            while ($row = $fat_bike->fetch_assoc()) {
+            while ($row = $fatbikes->fetch_assoc()) {
                 echo '<div class="bike-card">';
                 echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                 echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
