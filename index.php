@@ -11,7 +11,6 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bi
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TRON Cycles – Bike Shop of the Future</title>
     <link rel="stylesheet" href="static/styles.css">
-    <?php require 'database.php';?>
 </head>
 <body>   
    
