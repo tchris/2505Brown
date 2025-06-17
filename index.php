@@ -9,7 +9,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bi
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TRON Cycles – Bike Shop of the Future</title>
+    <title>TRON Cycles – Bike Shop of the Past</title>
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>   
