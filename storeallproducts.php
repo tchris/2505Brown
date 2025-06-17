@@ -1,7 +1,10 @@
 <html>
 
 <head><title><i>Supernatural</i> Store-EM420</title>
-<link href="tstore.css" rel="stylesheet" type = "text/css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TRON Cycles – Bike Shop of the Future</title>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 
 
