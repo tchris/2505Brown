@@ -21,7 +21,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Fat_bi
         <div class="floating-welcome">
             <img src="img/CP-Bike.png" class="avatar">
             <h1>TRON Bike Shop</h1>
-            <p class="title">Hardtail! | Softtail! | Accessories Galore</p>
+            <p class="title">Hardtail! | Softtail!!! | Accessories Galore</p>
         </div>
 
         <!-- Experience -->
