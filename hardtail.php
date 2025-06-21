@@ -30,12 +30,12 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
       
 <main>
     
-    <section class="single-product">
+
         <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
         <?php
         while ($row = $hardtails->fetch_assoc()) {
                 echo '<section class="single-product">';
-                
+
                 echo '<div class="product-card">';
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
@@ -47,10 +47,9 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
                     echo '<p>' . htmlspecialchars($description) . '</p>';
                 echo '</div>';
 
-            echo '</div>';
+            echo '</section>';
         }
         ?>
-    </section>
 
     
 </main>
