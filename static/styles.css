@@ -127,6 +127,7 @@ body {
     height: auto;
     border-radius: 10px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .single-bike-card-description {
