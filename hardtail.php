@@ -26,7 +26,7 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
 <main>
     
     <section class="single-panel">
-        <h2><a href="/2505Chartreuse/storeallproducts.php" class="panel-link">Hardtail Bikes</a></h2>
+        <h2><a href="/2505Chartreuse/hardtail.php" class="panel-link">Hardtail Bikes</a></h2>
         <?php
         while ($row = $hardtails->fetch_assoc()) {
             echo '<div class="single-bike-card">';
