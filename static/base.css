@@ -81,9 +81,10 @@ h2 a {
 }
 
 .section-heading {
+    font-size: 2rem;
     text-align: left;
     margin-top: 1rem;
-    margin-left: 2rem;
+    margin-left: 5rem;
 }
 
 p {
