@@ -21,7 +21,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
         <div class="floating-welcome">
             <img src="img/CP-Bike.png" class="avatar">
             <h1>TRON Bike Shop</h1>
-            <p class="title">Hardtail! | Softtail!!! | Accessories Galore</p>
+            <p class="title">Hardtail Bikes</p>
         </div>
 
         <!-- Experience -->
@@ -29,8 +29,8 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
 <main class="dual-section-container">
     
     <section class="left-panel">
-        <a href="/2505Chartreuse/hardtail.php" class="panel-link">
-            <h2>Hardtail Bikes</h2></a>
+        <a href="/2505Chartreuse/storeallproducts.php" class="panel-link">
+            <h2>Hardtail Bikes</h2>
             <?php
             while ($row = $hardtails->fetch_assoc()) {
                 echo '<div class="bike-card">';
@@ -45,8 +45,8 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
 
 
     <section class="right-panel">
-        <a href="/2505Chartreuse/fullsuspension.php.php">
-            <h2>Full Suspension Bikes</h2></a>
+        <a href="/2505Chartreuse/storeallproducts.php">
+            <h2>Full Suspension Bikes</h2>
             <?php
             while ($row = $fatbikes->fetch_assoc()) {
                 echo '<div class="bike-card">';
