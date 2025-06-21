@@ -83,7 +83,7 @@ body {
     gap: 20px;
     justify-content: space-between;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 50%;
     margin: 0 auto;
 }
 
@@ -99,7 +99,7 @@ body {
 
 /*Limit each section to half screen width */
 .single-panel {
-    max-width: 10%;
+    max-width: 50%;
     text-align: center;
 }
 
