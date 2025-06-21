@@ -36,7 +36,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         <a href="/2505Chartreuse/hardtail.php">    
             <?php
             while ($row = $hardtails->fetch_assoc()) {
-                echo '<h2>Hardtail Bikes</h2>'
+                echo '<h2>Hardtail Bikes</h2>';
                 echo '<div class="product-card">';
                 echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                 echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
