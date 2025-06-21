@@ -69,7 +69,11 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                 echo '</div>';
             }
                 ?>
+<<<<<<< HEAD
             </a>
+=======
+        </a>
+>>>>>>> parent of 3b40251 (Applied Product Card to all three products)
     </section>
     
 </main>
