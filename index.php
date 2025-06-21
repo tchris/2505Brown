@@ -25,7 +25,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         <div class="hero">
             <img src="img/CP-Bike.png" class="hero__image">
             <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
-            <h2 class="hero__menu"><a href="/hardtail.php">Hardtail</a> |<a href="/fullsuspension.php"> Full Suspension</a> | <a href="/accessories.php">Accessories Galore</a></h2>
+            <h2 class="hero__menu"><a href="//hardtail.php">Hardtail</a> |<a href="//fullsuspension.php"> Full Suspension</a> | <a href="//accessories.php">Accessories Galore</a></h2>
         </div>
 
         <!-- Experience -->
