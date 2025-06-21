@@ -41,7 +41,6 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                    echo '</div>';
                 }
                     ?>
             </a>         
@@ -56,7 +55,6 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                    echo '</div>';
                 }
                     ?>
             </a>         
@@ -70,7 +68,6 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                    echo '</div>';
                 }
                     ?>
             </a>         
