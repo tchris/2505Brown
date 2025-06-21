@@ -103,6 +103,40 @@ body {
     text-align: center;
 }
 
+.single-bike-card {
+    display: flex;
+    background-color: #000;
+    border: 2px solid #00ddff;
+    box-shadow: 0 0 12px #0000ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: #00ddff;
+    gap: 20px;
+    text-align: left;
+}
+
+.single-bike-card .bike-info {
+    flex-shrink: 0;
+    width: 250px;
+    text-align: center;
+}
+
+.single-bike-card .bike-info img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.single-bike-card-description {
+    flex-grow: 1;
+    padding-top: 10px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+
 
 .panel-link {
     display: block;

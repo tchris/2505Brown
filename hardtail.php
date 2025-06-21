@@ -26,19 +26,27 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
 <main class="single-section-container">
     
     <section class="single-panel">
-        <a href="/2505Chartreuse/storeallproducts.php" class="panel-link">
-            <h2>Hardtail Bikes</h2>
-            <?php
-            while ($row = $hardtails->fetch_assoc()) {
-                echo '<div class="bike-card">';
-                echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
-                echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-                echo '<p>$' . number_format($row['price'], 2) . '</p>';
+        <h2><a href="/2505Chartreuse/storeallproducts.php" class="panel-link">Hardtail Bikes</a></h2>
+        <?php
+        while ($row = $hardtails->fetch_assoc()) {
+            echo '<div class="single-bike-card">';
+
+                echo '<div class="bike-info">';
+                    echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                    echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
+                    echo '<p>$' . number_format($row['price'], 2) . '</p>';
                 echo '</div>';
-            }
-                ?>
-        </a>
+
+                echo '<div class="single-bike-card-description">';
+                    $description = $row['description'] ?? 'No description available.';
+                    echo '<p>' . htmlspecialchars($description) . '</p>';
+                echo '</div>';
+
+            echo '</div>';
+        }
+        ?>
     </section>
+
     
 </main>
 
