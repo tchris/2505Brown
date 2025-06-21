@@ -114,11 +114,11 @@ body {
     color: #00ddff;
     gap: 20px;
     text-align: left;
+    flex-wrap: wrap;
 }
 
 .single-bike-card .bike-info {
-    flex-shrink: 0;
-    width: 250px;
+    flex-shrink: 0 0 250px;
     text-align: center;
 }
 
