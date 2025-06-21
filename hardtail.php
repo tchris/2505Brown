@@ -12,7 +12,6 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/layout.css">
     <link rel="stylesheet" href="static/components.css">
-    <link rel="stylesheet" href="singleproduct.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
@@ -31,7 +30,7 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
 <main>
     
 
-        <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
+        <h2 class="section-heading"><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
         <?php
         while ($row = $hardtails->fetch_assoc()) {
                 echo '<section class="single-product">';

@@ -80,6 +80,10 @@ h2 a {
     text-decoration: none;
 }
 
+.section heading {
+    text-align: left;
+}
+
 p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
