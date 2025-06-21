@@ -13,11 +13,12 @@
 
 .single-product {
 display: flex;
-flex-direction: column;
+flex-direction: row;
 gap: 1rem;
+align-items: flex-start;
 }
 
-.single-bike-card-description {
+.single-product-card-description {
     flex-grow: 1;
     padding-top: 10px;
     line-height: 1.6;
