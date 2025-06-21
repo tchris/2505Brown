@@ -23,7 +23,7 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
         </div>
         <!-- Experience -->
       
-<main class="single-section-container">
+<main>
     
     <section class="single-panel">
         <h2><a href="/2505Chartreuse/storeallproducts.php" class="panel-link">Hardtail Bikes</a></h2>
