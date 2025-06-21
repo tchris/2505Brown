@@ -84,7 +84,7 @@ body {
     justify-content: space-between;
     padding: 20px;
     max-width: 50%;
-    margin: 0 auto;
+    margin: 0 0 0 20;
 }
 
 .single-section-container section {
