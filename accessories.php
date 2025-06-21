@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 require 'database.php'; // ✅ Connect once
-$hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail'");
+$accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Accessories'");
 ?>
 
 <head>
@@ -30,9 +30,9 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
 <main>
     
 
-        <h2 class="section-heading"><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
+        <h2 class="section-heading"><a href="/2505Chartreuse/accessories.php">Bike Accessories</a></h2>
         <?php
-        while ($row = $hardtails->fetch_assoc()) {
+        while ($row = $accessories->fetch_assoc()) {
                 echo '<section class="single-product">';
 
                 echo '<div class="product-card">';
