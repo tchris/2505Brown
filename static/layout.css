@@ -21,6 +21,7 @@ align-items: flex-start;
 .single-product-card-description {
     flex-grow: 1;
     padding-top: 10px;
+    margin-top: 10px;
     line-height: 1.6;
     font-size: 1rem;
 }
