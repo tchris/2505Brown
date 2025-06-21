@@ -13,16 +13,14 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
 </head>
 <body>   
    
-   <!-- Page Content Wrapper -->
     <div class="page-wrapper">
 
         <!-- Floating Profile -->
         <div class="floating-welcome">
             <img src="img/CP-Bike.png" class="avatar">
             <h1>TRON Bike Shop</h1>
-            <p class="title">Hardtail Bikes</p>
+            <p class="title"><a href="/2505Chartreuse/hardtail.php">Hardtail</a> |<a href="/2505Chartreuse/fullsuspension.php"> Full Suspension</a> | <a href="/2505Chartreuse/accessories.php">Accessories Galore</a></p>
         </div>
-
         <!-- Experience -->
       
 <main class="dual-section-container">
