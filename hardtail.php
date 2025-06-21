@@ -41,7 +41,7 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
                 echo '</div>';
 
-                echo '<div class="single-produce-card-description">';
+                echo '<div class="single-product-card-description">';
                     $description = $row['descr'] ?? 'No description available.';
                     echo '<p>' . htmlspecialchars($description) . '</p>';
                 echo '</div>';
