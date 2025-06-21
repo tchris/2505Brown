@@ -10,18 +10,20 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TRON Cycles – Bike Shop of the Future</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/layout.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>   
    
    <!-- Page Content Wrapper -->
     <div class="page-wrapper">
 
-        <!-- Floating Profile -->
-        <div class="floating-welcome">
-            <img src="img/CP-Bike.png" class="avatar">
-            <h1>TRON Bike Shop</h1>
-            <p class="title">Full Suspension Bikes</p>
+        <!-- Hero Wrapper -->
+        <div class="hero">
+            <img src="img/CP-Bike.png" class="hero__image">
+            <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
+            <h2 class="hero__menu"><a href="/2505Chartreuse/hardtail.php">Hardtail</a> |<a href="/2505Chartreuse/fullsuspension.php"> Full Suspension</a> | <a href="/2505Chartreuse/accessories.php">Accessories Galore</a></h2>
         </div>
-
-        <!-- Experience -->
+</body>
