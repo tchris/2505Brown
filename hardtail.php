@@ -38,7 +38,7 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
                 echo '</div>';
 
                 echo '<div class="single-bike-card-description">';
-                    $description = $row['description'] ?? 'No description available.';
+                    $description = $row['descr'] ?? 'No description available.';
                     echo '<p>' . htmlspecialchars($description) . '</p>';
                 echo '</div>';
 
