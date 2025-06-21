@@ -3,7 +3,6 @@
 <?php
 require 'database.php'; // ✅ Connect once
 $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail' ORDER BY RAND() LIMIT 1");
-$fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full Suspens' ORDER by RAND() LIMIT 1");
 ?>
 
 <head>
@@ -33,22 +32,6 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
             <h2>Hardtail Bikes</h2>
             <?php
             while ($row = $hardtails->fetch_assoc()) {
-                echo '<div class="bike-card">';
-                echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
-                echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-                echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                echo '</div>';
-            }
-                ?>
-        </a>
-    </section>
-
-
-    <section class="right-panel">
-        <a href="/2505Chartreuse/storeallproducts.php">
-            <h2>Full Suspension Bikes</h2>
-            <?php
-            while ($row = $fatbikes->fetch_assoc()) {
                 echo '<div class="bike-card">';
                 echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                 echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
