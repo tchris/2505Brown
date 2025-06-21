@@ -44,6 +44,8 @@
 
 .product-card {
     background-color: #000;
+    max-width: 25%;
+    height: auto;
     border: 2px solid #00ddff;
     box-shadow: 0 0 12px #0000ff;
     border-radius: 12px;
