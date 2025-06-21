@@ -12,8 +12,7 @@
 }
 
 .single-product {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
+display: flex;
+flex-direction: column;
+gap: 2rem;
 }
