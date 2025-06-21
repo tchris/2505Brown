@@ -29,11 +29,11 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
       
 <main>
     
-    <section class="single-panel">
+    <section class="single-product">
         <h2><a href="/2505Chartreuse/hardtail.php" class="panel-link">Hardtail Bikes</a></h2>
         <?php
         while ($row = $hardtails->fetch_assoc()) {
-            echo '<div class="single-bike-card">';
+            echo '<div class="product-card">';
 
                 echo '<div class="bike-info">';
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
