@@ -20,7 +20,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
         <!-- Floating Profile -->
         <div class="floating-welcome">
             <img src="img/CP-Bike.png" class="avatar">
-            <h1>TRON Bike Shop</h1>
+            <h1><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
             <p class="title"><a href="/2505Chartreuse/hardtail.php">Hardtail</a> |<a href="/2505Chartreuse/fullsuspension.php"> Full Suspension</a> | <a href="/2505Chartreuse/accessories.php">Accessories Galore</a></p>
         </div>
 
