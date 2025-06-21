@@ -35,22 +35,20 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
     <section class="multiple-product">
         <div class="product-card">
             <a href="/hardtail.php">
-                <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
-                <?php
-                while ($row = $hardtails->fetch_assoc()) {
-                    echo '<div class="product-card">';
-                    echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
-                    echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-                    echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                    echo '</div>';
-                }
-                    ?>
+            <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
+            <?php
+            while ($row = $hardtails->fetch_assoc()) {
+                echo '<div class="product-card">';
+                echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
+                echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
+                echo '<p>$' . number_format($row['price'], 2) . '</p>';
+                echo '</div>';
+            }
+                ?>
             </a>
         </div>
-    </section>
-
-    <section class="middle-panel">
         
+        <div class="product-card">
             <h2><a href="/2505Chartreuse/fullsuspension.php">Full Suspension Bikes</a></h2>
             <?php
             while ($row = $fatbikes->fetch_assoc()) {
@@ -61,11 +59,10 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                 echo '</div>';
             }
                 ?>
-        </a>
-    </section>
+            </a>
+        </div>
 
-    <section class="right-panel">
-        
+        <div class="product-card">
             <h2><a href="/2505Chartreuse/accessories.php">Accessories</a></h2>
             <?php
             while ($row = $accessories->fetch_assoc()) {
@@ -76,7 +73,8 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                 echo '</div>';
             }
                 ?>
-        </a>
+            </a>
+        </div>
     </section>
     
 </main>
