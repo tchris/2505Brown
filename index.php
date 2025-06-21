@@ -38,7 +38,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                 <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
                 <?php
                 while ($row = $hardtails->fetch_assoc()) {
-                    echo '<div class="bike-card">';
+                    echo '<div class="product-card">';
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
