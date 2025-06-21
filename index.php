@@ -30,7 +30,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
     
     <section class="left-panel">
         <a href="/2505Chartreuse/hardtail.php">
-            <h2>Hardtail Bikes</h2></a>
+            <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
             <?php
             while ($row = $hardtails->fetch_assoc()) {
                 echo '<div class="bike-card">';
@@ -45,8 +45,8 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
 
 
     <section class="right-panel">
-        <a href="/2505Chartreuse/fullsuspension.php">
-            <h2>Full Suspension Bikes</h2></a>
+        
+            <h2><a href="/2505Chartreuse/fullsuspension.php">Full Suspension Bikes</a></h2>
             <?php
             while ($row = $fatbikes->fetch_assoc()) {
                 echo '<div class="bike-card">';
