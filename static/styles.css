@@ -76,7 +76,7 @@ body {
     text-align: center;
 }
 
-/*Single Section (Hardtail | Full Suspension | Accessories*/
+/*Single Section (Hardtail | Full Suspension | Accessories
 
 .single-section-container {
     display: flex;
@@ -95,7 +95,7 @@ body {
     border: 1px solid #00ddff;
     border-radius: 10px;
     box-shadow: 0 0 10px #0000ff;
-}
+}*/
 
 /*Limit each section to half screen width */
 .single-panel {
