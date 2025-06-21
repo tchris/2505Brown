@@ -3,7 +3,7 @@
 <?php
 require 'database.php'; // ✅ Connect once
 $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail' ORDER BY RAND() LIMIT 1");
-$fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full Suspens' ORDER by RAND() LIMIT 1");
+$fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full Suspens' ORDER by RAND() LIMIT 1");
 $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Accessories' ORDER by RAND() LIMIT 1");
 ?>
 
@@ -48,29 +48,33 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         </div>
                
         
-            <h2><a href="/2505Chartreuse/fullsuspension.php">Full Suspension Bikes</a></h2>
-            <?php
-            while ($row = $fatbikes->fetch_assoc()) {
-                echo '<div class="product-card">';
-                echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
-                echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-                echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                echo '</div>';
-            }
-                ?>
-            </a>
+        <div class="product-card"> 
+            <a href="/2505Chartreuse/fullsuspension.php"> 
+                <?php
+                while ($row = $fullsuspension->fetch_assoc()) {
+                    echo '<h2>Full Suspension Bikes</h2>';
+                    echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
+                    echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
+                    echo '<p>$' . number_format($row['price'], 2) . '</p>';
+                    echo '</div>';
+                }
+                    ?>
+            </a>         
+        </div>
         
-            <h2><a href="/2505Chartreuse/accessories.php">Accessories</a></h2>
-            <?php
-            while ($row = $accessories->fetch_assoc()) {
-                echo '<div class="bike-card">';
-                echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
-                echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-                echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                echo '</div>';
-            }
-                ?>
-            </a>
+        <div class="product-card"> 
+            <a href="/2505Chartreuse/accessories.php"> 
+                <?php
+                while ($row = $accessories->fetch_assoc()) {
+                    echo '<h2>Accessories</h2>';
+                    echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:100%; border-radius:10px;">';
+                    echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
+                    echo '<p>$' . number_format($row['price'], 2) . '</p>';
+                    echo '</div>';
+                }
+                    ?>
+            </a>         
+        </div>
     </section>
     
 </main>
