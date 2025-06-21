@@ -25,7 +25,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         <div class="hero">
             <img src="img/CP-Bike.png" class="hero__image">
             <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
-            <h2 class="hero__menu"><a href="/2505Chartreuse/hardtail.php">Hardtail</a> |<a href="/2505Chartreuse/fullsuspension.php"> Full Suspension</a> | <a href="/2505Chartreuse/accessories.php">Accessories Galore</a></h2>
+            <h2 class="hero__menu"><a href="/hardtail.php">Hardtail</a> |<a href="/fullsuspension.php"> Full Suspension</a> | <a href="/accessories.php">Accessories Galore</a></h2>
         </div>
 
         <!-- Experience -->
@@ -33,8 +33,8 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 <main class="dual-section-container">
     
     <section class="left-panel">
-        <a href="/2505Chartreuse/hardtail.php">
-            <h2><a href="/2505Chartreuse/hardtail.php">Hardtail Bikes</a></h2>
+        <a href="/hardtail.php">
+            <h2><a href="/hardtail.php">Hardtail Bikes</a></h2>
             <?php
             while ($row = $hardtails->fetch_assoc()) {
                 echo '<div class="bike-card">';
@@ -49,7 +49,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 
     <section class="middle-panel">
         
-            <h2><a href="/2505Chartreuse/fullsuspension.php">Full Suspension Bikes</a></h2>
+            <h2><a href="/fullsuspension.php">Full Suspension Bikes</a></h2>
             <?php
             while ($row = $fatbikes->fetch_assoc()) {
                 echo '<div class="bike-card">';
