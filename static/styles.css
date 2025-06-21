@@ -126,8 +126,8 @@ body {
     width: 50%;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 10px;
-    text-align: left;
+    margin: 0 auto 10px 0; /* top, right, bottom, left */
+    display: block; /* REQUIRED for margin to take effect */
 }
 
 .single-bike-card-description {
