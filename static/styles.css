@@ -99,8 +99,8 @@ body {
 
 /*Limit each section to half screen width */
 .single-panel {
-    max-width: 50%;
-    text-align: left;
+    max-width: 10%;
+    text-align: center;
 }
 
 
