@@ -56,11 +56,14 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-card a {
+.product-card__link {
+    display: block;
+    width: 100%;
+    height: 100%;
     color: inherit;
     text-decoration: none;
-    padding: 0 0.5rem;
 }
+
 
 .product-card:hover {
     transform: scale(1.02);
