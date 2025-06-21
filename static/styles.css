@@ -49,6 +49,8 @@ body {
     text-align: left;
 }
 
+/* Dual Section (index.php */
+
 .dual-section-container {
     display: flex;
     gap: 20px;
@@ -73,6 +75,34 @@ body {
     max-width: 50%;
     text-align: center;
 }
+
+/*Single Section (Hardtail | Full Suspension | Accessories*/
+
+.single-section-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.single-section-container section {
+    flex: 1;
+    background-color: #000000;
+    color: #00ddff;
+    padding: 20px;
+    border: 1px solid #00ddff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0000ff;
+}
+
+/*Limit each section to half screen width */
+.single-panel {
+    max-width: 50%;
+    text-align: left;
+}
+
 
 .panel-link {
     display: block;
