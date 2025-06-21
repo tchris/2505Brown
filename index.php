@@ -30,7 +30,7 @@ $fatbikes = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full S
     
     <section class="left-panel">
         <a href="/2505Chartreuse/storeallproducts.php" class="panel-link">
-            <h2>Hardtail Bikesies!!!</h2>
+            <h2>Hardtail Bikes</h2>
             <?php
             while ($row = $hardtails->fetch_assoc()) {
                 echo '<div class="bike-card">';
