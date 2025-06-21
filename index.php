@@ -33,7 +33,8 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 <main>
     
     <section class="multiple-product">
-        <a href="/2505Chartreuse/hardtail.php">    
+        <a href="/2505Chartreuse/hardtail.php">   
+            <div class="product-card"> 
             <?php
             while ($row = $hardtails->fetch_assoc()) {
                 echo '<h2>Hardtail Bikes</h2>';
@@ -44,6 +45,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
                 echo '</div>';
             }
                 ?>
+            </div>
         </a>        
         
             <h2><a href="/2505Chartreuse/fullsuspension.php">Full Suspension Bikes</a></h2>
