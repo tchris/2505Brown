@@ -107,7 +107,7 @@
     max-width: 100%;
   }
 
-  nav, .menu, .nav-links {
+  nav, .hero-menu, .nav-links {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
