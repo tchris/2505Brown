@@ -120,7 +120,7 @@
 
   /* Show mobile-friendly stacked menu */
 .hero__menu.mobile-menu {
-  display: block !important;
+  display: block;
   text-align: center;
   font-size: 1rem;
 }
