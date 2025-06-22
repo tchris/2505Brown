@@ -84,24 +84,19 @@
 }
 
 @media (max-width: 768px) {
-  
-    .product-card {
-    background-color: #000;
-    width: 99%;
-    height: auto;
-    border: 2px solid #00ddff;
-    box-shadow: 0 0 12px #0000ff;
-    border-radius: 12px;
-    padding: 2px;
-    margin: auto;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .product-card {
+    width: 100%; /* Use full container width */
+    max-width: 100vw; /* Ensure no hidden overflow */
+    box-sizing: border-box; /* Padding doesn't overflow container */
+    margin: 1rem auto; /* Adds spacing and centers */
+    padding: 1rem;
   }
 
   .product-card img {
-    max-width: 95%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 10px;
-}
+    display: block;
+    margin: 0 auto 10px auto;
+  }
 }
