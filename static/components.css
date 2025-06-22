@@ -118,18 +118,21 @@
     display: none;
   }
 
-  /* Show mobile-friendly stacked menu */
-.hero__menu.mobile-menu {
-  display: block;
-  text-align: center;
-  font-size: 1rem;
-}
-
-
-  .hero__menu.mobile-menu a {
+    /* Show mobile-friendly stacked menu */
+    .hero__menu.mobile-menu {
     display: block;
-    padding: 0.25rem 0;
-  }
+    text-align: center;
+    font-size: 1rem;
+    }
+
+
+    .hero__menu.mobile-menu a {
+    display: block;
+    padding: 0.15rem 0; /* was 0.25rem — now tighter vertically */
+    line-height: 1.2;   /* tighten line spacing */
+    margin: 0;          /* make sure no default spacing creeps in */
+    }
+
 
   .product-card {
     width: 100%;
