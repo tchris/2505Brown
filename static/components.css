@@ -119,6 +119,7 @@
 }
 
 .product-name {
+    text-align: left;
     font-size: 2rem;
     margin-bottom: 0.5rem;
     color: #00ddff;
