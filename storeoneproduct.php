@@ -58,9 +58,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <h2 class="product-name"><?= htmlspecialchars($product['name']) ?></h2>
             <div class="single-product-card-description">
                 <p><?= nl2br(htmlspecialchars($product['descr'])) ?></p>
-                <p class="product-price">$<?= number_format($product['price'], 2) ?></p>
             </div>
-        
+            <p class="product-price">$<?= number_format($product['price'], 2) ?></p>
         </div>
     </div>
 
