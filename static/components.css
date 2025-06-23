@@ -93,14 +93,14 @@
     box-shadow: 0 0 12px #0000ff;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 30px;
+    margin: 30px;
     color: #00ddff;
     align-items: flex-start;
     flex-wrap: wrap;
 }
 
 .single-product-card img {
-    width: 33%;
+    width: 50%;
     height: auto;
     border-radius: 10px;
     display: block;
@@ -121,7 +121,7 @@
 .product-name {
     text-align: left;
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     color: #00ddff;
 }
 
