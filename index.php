@@ -37,7 +37,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         <?php
         while ($row = $hardtails->fetch_assoc()) {
             echo '<div class="product-card">';
-            echo '<a href="/2505Chartreuse/hardtail.php" class="product-card__link">';
+            echo '<a href="/2505Chartreuse/storeoneproduct.php?id=' . $row['id'] . '" class="product-card__link">';
             echo     '<h2>Hardtail Bikes</h2>';
             echo     '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
             echo     '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
@@ -47,12 +47,13 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         }
         ?>
 
+
                
         
         <?php
         while ($row = $fullsuspension->fetch_assoc()) {
             echo '<div class="product-card">';
-            echo '<a href="/2505Chartreuse/fullsuspension.php" class="product-card__link">';
+            echo '<a href="/2505Chartreuse/storeoneproduct.php?id=' . $row['id'] . '" class="product-card__link">';
             echo     '<h2>Full Suspension Bikes</h2>';
             echo     '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
             echo     '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
@@ -65,7 +66,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
         <?php
         while ($row = $accessories->fetch_assoc()) {
             echo '<div class="product-card">';
-            echo '<a href="/2505Chartreuse/accessories.php" class="product-card__link">';
+            echo '<a href="/2505Chartreuse/storeoneproduct.php?id=' . $row['id'] . '" class="product-card__link">';
             echo     '<h2>Bike Accessories</h2>';
             echo     '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
             echo     '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';

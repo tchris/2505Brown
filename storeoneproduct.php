@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require 'database.php'; // ✅ Connect once
-$hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail' ORDER BY RAND() LIMIT 1");
-$fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full Suspens' ORDER by RAND() LIMIT 1");
-$accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Accessories' ORDER by RAND() LIMIT 1");
+require 'database.php'; // ✅ still connects once
+
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $id = intval($_GET['id']); // safely cast to integer
+
+    // Fetch that one product by ID
+    $stmt = $mysqli->prepare("SELECT * FROM Mountain_Bike WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $product = $result->fetch_assoc();
+
+    if (!$product) {
+        echo "<p>Product not found.</p>";
+        
+        exit;
+    }
+} else {
+    echo "<p>No product specified.</p>";
+    exit;
+}
 ?>
+
 
 <head>
     <meta charset="UTF-8" />
@@ -33,21 +51,17 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
       
 <main>
     
-    <section class="single-product-card">     
-        <?php
-        while ($row = $hardtails->fetch_assoc()) {
-            echo '<div class="product-card">';
-            echo '<a href="/2505Chartreuse/hardtail.php" class="product-card__link">';
-            echo     '<h2>Hardtail Bikes</h2>';
-            echo     '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
-            echo     '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-            echo     '<p>$' . number_format($row['price'], 2) . '</p>';
-            echo '</a>';
-            echo '</div>';
-        }
-        ?>
-        
-    </section>
+   <div class="single-product-card">
+    <div class="bike-info">
+        <img src="img/<?= htmlspecialchars($product['picture']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+        <h2><?= htmlspecialchars($product['name']) ?></h2>
+        <p>$<?= number_format($product['price'], 2) ?></p>
+    </div>
+    <div class="single-bike-card-description">
+        <p><?= nl2br(htmlspecialchars($product['descr'])) ?></p>
+    </div>
+</div>
+
     
 </main>
 
