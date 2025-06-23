@@ -55,10 +55,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <img src="img/<?= htmlspecialchars($product['picture']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
 
         <div class="single-product-details">
-            <div class="single-product-info">
+            
                 <h2 class="product-name"><?= htmlspecialchars($product['name']) ?></h2>
                 <p class="product-price">$<?= number_format($product['price'], 2) ?></p>
-            </div>
+            
             <div class="single-product-card-description">
                 <p><?= nl2br(htmlspecialchars($product['descr'])) ?></p>
             </div>
