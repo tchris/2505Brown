@@ -1,57 +1,69 @@
-<html>
-
-<head><title><i>Supernatural</i> Store-EM420</title>
-<link href="tstore.css" rel="stylesheet" type = "text/css">
-</head>
-<body>
-
-
-<center><img src="img/banner.jpg"></center><br>
-<h1>Welcome Valued Customer</h1>
-
-
-<center>
-<table cellpadding = 10>
-<tr><td valign='top'><h2>Licensed Merchandise</h2><br><form action='storebycategory.php' method='Post'><button type='submit' name='Category' value='Licensed'/><img src="img/spn-joinhunt.jpg" width=200></button></form></td>
-<td valign='top'><h2>Graphics</h2><br><form action='storebycategory.php' method='Post'><button type='submit' name='Category' value='Graphics'/><img src="img/spn-graphics.gif" width=200></button></form></td>
-<td valign='top'><h2>Plushies</h2><br><form action='storebycategory.php' method='Post'><button type='submit' name='Category' value='Plushies'/><img src="img/spn-plushies.jpg" width=200></button></form></td>
-<td valign='top'><h2>Collectibles</h2><br><form action='storebycategory.php' method='Post'><button type='submit' name='Category' value='Collectibles'/><img src="img/spn-collectibles.jpg" width=200></button></form></td>
-<td valign='top'><h2>Everything!</h2><br><form action='storeallproducts.php' method='Post'><button type='submit' name='Category' value='Everything'/><img src="img/pie.jpg" width=200></button></form></td>
-</tr>
-</table>
+<!DOCTYPE html>
+<html lang="en">
 <?php
-
-require_once("database.php");
-$Id = $_POST['Id'];
-//create table around the information
-$sql="SELECT * FROM Mountain_Bike where Id='$Id'";
-
-//create table around the information
-$result = $mysqli->query($sql);
-            //var_dump($result);
-            if (!empty($result)) {
-                while ($row = $result->fetch_assoc())
-{
-
-    echo "<table cellpadding=10><tr><td rowspan=2><img src='img/" . $row["picture"] . "' width=500></td>";
-    echo "<td><h1>" . $row["name"] . "</h1></td><td><h2>$" . $row["price"] . "</h2></td></tr>";
-    echo "<td colspan=2><p>" . $row["descr"] . "</p></td></tr>";
-    echo "<tr><td colspan=2></td><td><form action='storecart.php' method = 'post'>Invoice: <input type='text' name='invId' /><input type='hidden' name='Id' value='$Id' /><button type='submit'><img src='img/cartbutton.png' width=150></button></form></td></tr></table>";
-}
-}
-
-
-
+require 'database.php'; // ✅ Connect once
+$hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail' ORDER BY RAND() LIMIT 1");
+$fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full Suspens' ORDER by RAND() LIMIT 1");
+$accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Accessories' ORDER by RAND() LIMIT 1");
 ?>
 
-<p id="footer">
-<i>
-Supernatural </i>
-is a supernatural drama on the CW. The Winchester brothers are on the hunt for their father as they hunt demons, ghosts, monsters and other ghouls of the supernatural world.  This store is a nonprofit demo website run and authored by a Computer Science instructor for a class on database-driven websites. Running costs come out of the instructor's pocket. While the products displayed are real, there is no advertising on this site nor links to actually purchase the items.
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TRON Cycles – Bike Shop of the Future</title>
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/layout.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>   
+   
+   <!-- Page Content Wrapper -->
+    <div class="page-wrapper">
 
-No copyright infringement is intended and no profit made by the Store. The administrators acknowledge that Supernatural is the property of The CW Network, and the use of Supernatural images and text intend to fall under "fair use" and commentary.
-<br>&copy;Tchris the Grate!</p>
+        <!-- Hero Wrapper -->
+        <div class="hero">
+            <img src="img/CP-Bike.png" class="hero__image">
+            <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
+            <h2 class="hero__menu"><a href="/2505Chartreuse/hardtail.php">Hardtail</a> |<a href="/2505Chartreuse/fullsuspension.php"> Full Suspension</a> | <a href="/2505Chartreuse/accessories.php">Accessories Galore</a></h2>
+            <h2 class="hero__menu mobile-menu"><a href="/2505Chartreuse/hardtail.php">Hardtail</a><br><a href="/2505Chartreuse/fullsuspension.php">Full Suspension</a><br><a href="/2505Chartreuse/accessories.php">Accessories Galore</a></h2>
+        </div>
+
+        <!-- Experience -->
+      
+<main>
+    
+    <section class="single-product-card">     
+        <?php
+        while ($row = $hardtails->fetch_assoc()) {
+            echo '<div class="product-card">';
+            echo '<a href="/2505Chartreuse/hardtail.php" class="product-card__link">';
+            echo     '<h2>Hardtail Bikes</h2>';
+            echo     '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+            echo     '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
+            echo     '<p>$' . number_format($row['price'], 2) . '</p>';
+            echo '</a>';
+            echo '</div>';
+        }
+        ?>
+        
+    </section>
+    
+</main>
+
+        
+        <hr class="cyberpunk-hr">
+
+
+        <!-- Footer -->
+        
+            <footer>
+                <p>© 2025 Bikes R' Us. All rights reserved.</p>
+            </footer>
+        
+        </div>
+
+    </div> <!-- end .page-wrapper -->
+
 </body>
-
-
 </html>

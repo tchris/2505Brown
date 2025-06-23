@@ -83,6 +83,12 @@
     font-size: 1rem;
 }
 
+/* Single Product Page */
+
+.single-product-card {
+  
+}
+
 /* Blocks Mobile Code in Hero unless screen is 768px or smaller*/
 .hero__menu.mobile-menu {
   display: none;
