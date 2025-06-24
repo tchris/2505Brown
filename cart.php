@@ -38,8 +38,15 @@ $cart = $_SESSION['cart'] ?? [];
                         $total += $line_total;
                     ?>
                         <li class="cart-item">
-                            <?= htmlspecialchars($bike['name']) ?> × <?= $qty ?> – $<?= number_format($line_total, 2) ?>
+                            <form action="update_cart.php" method="post" class="cart-update-form">
+                                <?= htmlspecialchars($bike['name']) ?> –
+                                <input type="hidden" name="id" value="<?= $id ?>">
+                                <input type="number" name="qty" value="<?= $qty ?>" min="0" class="qty-input">
+                                <button type="submit">Update</button>
+                            </form>
+                            <span class="line-total">$<?= number_format($line_total, 2) ?></span>
                         </li>
+
                     <?php endwhile; ?>
                 </ul>
 
