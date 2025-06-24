@@ -13,7 +13,7 @@ $date = date('Y-m-d'); // today's date
 $description = "This is a test description inserted by test_insert.php";
 
 // Prepare and insert
-$stmt = $mysqli->prepare("INSERT INTO test (Name, Phone, Date, Description) VALUES (?, ?, ?, ?)");
+$stmt = $mysqli->prepare("INSERT INTO db_test (Name, Phone, Date, Description) VALUES (?, ?, ?, ?)");
 if (!$stmt) {
     die("Prepare failed: " . $mysqli->error);
 }
