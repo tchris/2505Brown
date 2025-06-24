@@ -41,7 +41,7 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                    echo '</a";'
+                    echo '</a>';
                 echo '</div>';
 
                 echo '<div class="single-product-card-description">';
