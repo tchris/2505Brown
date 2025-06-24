@@ -52,16 +52,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 <main>
     
     <div class="single-product-card">
-        <img src="img/<?= htmlspecialchars($product['picture']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+    <img src="img/<?= htmlspecialchars($product['picture']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
 
-        <div class="single-product-details">
-                <h2 class="product-name"><?= htmlspecialchars($product['name']) ?></h2>
-            <div class="single-product-card-description">
-                <p><?= nl2br(htmlspecialchars($product['descr'])) ?></p>
-            </div>
-            <p class="product-price">$<?= number_format($product['price'], 2) ?></p>
+    <div class="single-product-details">
+        <h2 class="product-name"><?= htmlspecialchars($product['name']) ?></h2>
+        <div class="single-product-card-description">
+            <p><?= nl2br(htmlspecialchars($product['descr'])) ?></p>
         </div>
+        <p class="product-price">$<?= number_format($product['price'], 2) ?></p>
+        <a href="/2505Chartreuse/add_to_cart.php?id=<?= $product['id'] ?>" class="buy-button">Buy It Now</a>
     </div>
+</div>
+
 
 
     
