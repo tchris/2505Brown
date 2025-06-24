@@ -30,8 +30,6 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
       
 <main>
     
-echo '<p><a href="/2505Chartreuse/storeoneproduct.php?id=5">Test accessory link</a></p>';
-
         <h2 class="section-heading"><a href="/2505Chartreuse/accessories.php">Bike Accessories</a></h2>
         <?php
         while ($row = $accessories->fetch_assoc()) {
