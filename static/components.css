@@ -138,6 +138,28 @@
     color: #00ddff;
 }
 
+/* Buy it now styling*/
+
+.buy-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: #00ddff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 8px #00ddff;
+    transition: background 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #03ed0f;
+    box-shadow: 0 0 12px #03ed0f;
+}
+
+
 /* Horizontal Rule... Cyber style!!!*/
 
 .cyberpunk-hr {
