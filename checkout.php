@@ -36,7 +36,7 @@ $cart = $_SESSION['cart'] ?? [];
         <?php if (empty($cart)): ?>
             <p>Your cart is empty. <a href="index.php">Return to shopping</a></p>
         <?php else: ?>
-            <form action="storeinvoice.php" method="post" class="checkout-form">
+            <form action="confirm_order.php" method="post" class="checkout-form">
 
     <h2>Billing Info</h2>
     <div class="form-group">
