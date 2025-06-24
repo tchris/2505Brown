@@ -55,7 +55,7 @@ $stmt = $mysqli->prepare("
     VALUES 
     (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
-$stmt->bind_param("ssssssssssssssd", 
+$stmt->bind_param("sssssssssssssssdd", 
     $cname, $caddy, $cstate, $czip, $cphone, $cemail,
     $sname, $saddy, $sstate, $szip, $sphone, $semail,
     $subtotal, $total
