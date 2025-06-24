@@ -138,6 +138,28 @@
     color: #00ddff;
 }
 
+/* Horizontal Rule... Cyber style!!!*/
+
+.cyberpunk-hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, #00ddff, #0000ff, #00ddff);
+    box-shadow: 0 0 20px #00ddff, 0 0 40px #0000ff;
+    margin: 2rem 0;
+    border-radius: 2px;
+    animation: pulse-glow 1.5s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 10px #00ddff, 0 0 20px #0000ff;
+    }
+    100% {
+        box-shadow: 0 0 20px #00ddff, 0 0 60px #0000ff;
+    }
+}
+
+
 
 /* Blocks Mobile Code in Hero unless screen is 768px or smaller*/
 .hero__menu.mobile-menu {
