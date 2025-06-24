@@ -142,6 +142,7 @@
 
 .buy-button {
     display: inline-block;
+    text-align: center;
     margin: 10px 0px;
     padding: 10px 16px;
     background-color: #00ddff;
