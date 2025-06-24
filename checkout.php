@@ -36,7 +36,7 @@ $cart = $_SESSION['cart'] ?? [];
         <?php if (empty($cart)): ?>
             <p>Your cart is empty. <a href="index.php">Return to shopping</a></p>
         <?php else: ?>
-            <form action="confirm_order.php" method="post" class="checkout-form">
+            <form action="preview_invoice.php" method="post">
 
     <h2>Billing Info</h2>
     <div class="form-group">
@@ -90,7 +90,7 @@ $cart = $_SESSION['cart'] ?? [];
             <input id="semail" name="semail" required>
         </div>
 
-        <button type="submit" class="buy-button">Submit Order</button>
+        <button type="submit" class="buy-button">Preview Invoice</button>
     </form>
 
         <?php endif; ?>
