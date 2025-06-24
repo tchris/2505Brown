@@ -167,7 +167,7 @@
     height: 4px;
     background: linear-gradient(to right, #00ddff, #0000ff, #00ddff);
     box-shadow: 0 0 20px #00ddff, 0 0 40px #0000ff;
-    margin: 2rem 0;
+    margin: 3rem 0;
     border-radius: 2px;
     animation: pulse-glow 1.5s infinite alternate;
 }
