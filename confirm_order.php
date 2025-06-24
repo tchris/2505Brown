@@ -4,7 +4,7 @@ require 'database.php';
 
 $cart = $_SESSION['cart'] ?? [];
 
-// Optional: Turn on error reporting for debugging
+// Uncomment these lines temporarily for debugging if needed
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
@@ -44,7 +44,7 @@ while ($bike = $result->fetch_assoc()) {
     $items[] = [
         'bike_id' => $id,
         'qty' => $qty,
-        'price_each' => $price,
+        'price_each' => $price, // used for display only
         'name' => $bike['name']
     ];
 
@@ -77,14 +77,14 @@ if (!$stmt->execute()) {
 
 $inv_id = $mysqli->insert_id;
 
-// 4. Insert invoice line items into `invoice_products`
-$stmt_items = $mysqli->prepare("INSERT INTO invoice_products (inv_id, bike_id, qty, price_each) VALUES (?, ?, ?, ?)");
+// 4. Insert invoice line items into `invoice_products` (no price_each)
+$stmt_items = $mysqli->prepare("INSERT INTO invoice_products (inv_id, bike_id, qty) VALUES (?, ?, ?)");
 if (!$stmt_items) {
     die("Line item prepare failed: " . $mysqli->error);
 }
 
 foreach ($items as $item) {
-    $stmt_items->bind_param("iiid", $inv_id, $item['bike_id'], $item['qty'], $item['price_each']);
+    $stmt_items->bind_param("iii", $inv_id, $item['bike_id'], $item['qty']);
     if (!$stmt_items->execute()) {
         die("Line item insert failed: " . $stmt_items->error);
     }
