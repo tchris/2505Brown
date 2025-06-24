@@ -37,9 +37,11 @@ $fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = '
                 echo '<section class="single-product">';
 
                 echo '<div class="product-card">';
+                    echo '<a href="/2505Chartreuse/storeoneproduct.php?id=' . $row['id'] . '" class="product-card__link">';
                     echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                     echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
                     echo '<p>$' . number_format($row['price'], 2) . '</p>';
+                    echo '</a>';
                 echo '</div>';
 
                 echo '<div class="single-product-card-description">';
