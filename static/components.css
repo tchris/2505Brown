@@ -159,8 +159,6 @@
     }
 }
 
-
-
 /* Blocks Mobile Code in Hero unless screen is 768px or smaller*/
 .hero__menu.mobile-menu {
   display: none;
