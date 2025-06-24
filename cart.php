@@ -4,28 +4,50 @@ require 'database.php';
 
 $cart = $_SESSION['cart'] ?? [];
 
-if (empty($cart)) {
-    echo "<p>Your cart is empty.</p>";
-    exit;
-}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart – TRON Cycles</title>
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/layout.css">
+</head>
+<body>
+    <main>
+        <h1 class="section-heading">Your Cart</h1>
 
-$bike_ids = implode(',', array_keys($cart));
-$result = $mysqli->query("SELECT * FROM Mountain_Bike WHERE id IN ($bike_ids)");
+        <?php if (empty($cart)): ?>
+            <p>Your cart is empty.</p>
+        <?php else: ?>
+            <?php
+            $bike_ids = implode(',', array_map('intval', array_keys($cart)));
+            $result = $mysqli->query("SELECT * FROM Mountain_Bike WHERE id IN ($bike_ids)");
 
-$total = 0;
+            if (!$result || $result->num_rows === 0): ?>
+                <p>There was a problem retrieving your cart items.</p>
+            <?php else: ?>
+                <ul class="cart-list">
+                    <?php
+                    $total = 0;
+                    while ($bike = $result->fetch_assoc()):
+                        $id = $bike['id'];
+                        $qty = $cart[$id];
+                        $line_total = $bike['price'] * $qty;
+                        $total += $line_total;
+                    ?>
+                        <li class="cart-item">
+                            <?= htmlspecialchars($bike['name']) ?> × <?= $qty ?> – $<?= number_format($line_total, 2) ?>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
 
-echo "<h2>Your Cart</h2>";
-echo "<ul>";
+                <p class="cart-total"><strong>Total: $<?= number_format($total, 2) ?></strong></p>
 
-while ($bike = $result->fetch_assoc()) {
-    $id = $bike['id'];
-    $qty = $cart[$id];
-    $line_total = $bike['price'] * $qty;
-    $total += $line_total;
-
-    echo "<li>{$bike['name']} × $qty – \$" . number_format($line_total, 2) . "</li>";
-}
-echo "</ul>";
-echo "<p><strong>Total: \$" . number_format($total, 2) . "</strong></p>";
-
-echo '<a href="checkout.php">Proceed to Checkout</a>';
+                <a href="checkout.php" class="buy-button">Proceed to Checkout</a>
+            <?php endif; ?>
+        <?php endif; ?>
+    </main>
+</body>
+</html>
