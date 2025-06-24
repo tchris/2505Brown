@@ -4,6 +4,11 @@ require 'database.php';
 
 $cart = $_SESSION['cart'] ?? [];
 
+// Optional: Turn on error reporting for debugging
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
     echo "<p>Invalid access or empty cart.</p>";
     exit;
@@ -55,19 +60,34 @@ $stmt = $mysqli->prepare("
     VALUES 
     (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
+
+if (!$stmt) {
+    die("Invoice prepare failed: " . $mysqli->error);
+}
+
 $stmt->bind_param("ssssssssssssssdd", 
     $cname, $caddy, $cstate, $czip, $cphone, $cemail,
     $sname, $saddy, $sstate, $szip, $sphone, $semail,
     $subtotal, $total
 );
-$stmt->execute();
+
+if (!$stmt->execute()) {
+    die("Invoice insert failed: " . $stmt->error);
+}
+
 $inv_id = $mysqli->insert_id;
 
 // 4. Insert invoice line items into `invoice_products`
 $stmt_items = $mysqli->prepare("INSERT INTO invoice_products (inv_id, bike_id, qty, price_each) VALUES (?, ?, ?, ?)");
+if (!$stmt_items) {
+    die("Line item prepare failed: " . $mysqli->error);
+}
+
 foreach ($items as $item) {
     $stmt_items->bind_param("iiid", $inv_id, $item['bike_id'], $item['qty'], $item['price_each']);
-    $stmt_items->execute();
+    if (!$stmt_items->execute()) {
+        die("Line item insert failed: " . $stmt_items->error);
+    }
 }
 
 // 5. Clear cart
