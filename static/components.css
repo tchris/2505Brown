@@ -160,6 +160,36 @@
     box-shadow: 0 0 12px #03ed0f;
 }
 
+/* Cart Controls Styling */
+
+.cart-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.cart-controls button {
+    padding: 4px 8px;
+    font-size: 1rem;
+    background: #00ddff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-controls button:hover {
+    background: #03ed0f;
+}
+
+.qty-display {
+    font-weight: bold;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+
 
 /* Horizontal Rule... Cyber style!!!*/
 
