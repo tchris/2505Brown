@@ -17,6 +17,9 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
+<body>
+    <main>
+        
 <?php
 session_start();
 $bike_id = $_GET['id'] ?? null;
@@ -39,3 +42,6 @@ if ($bike_id && is_numeric($bike_id)) {
 } else {
     echo "Invalid product.";
 }
+
+    </main>
+</body>

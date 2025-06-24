@@ -17,6 +17,9 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
+<body>
+    <main>
+
 <form action="storeinvoice.php" method="post">
   <h2>Billing Info</h2>
   <input name="cname" placeholder="Name" required>
@@ -36,3 +39,6 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 
   <button type="submit">Submit Order</button>
 </form>
+
+    </main>
+</body>

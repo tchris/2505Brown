@@ -17,6 +17,9 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
+<body>
+    <main>
+        
 <?php
 session_start();
 require 'database.php';
@@ -48,3 +51,6 @@ echo "</ul>";
 echo "<p><strong>Total: \$" . number_format($total, 2) . "</strong></p>";
 
 echo '<a href="checkout.php">Proceed to Checkout</a>';
+    
+    </main>
+</body>
