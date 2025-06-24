@@ -32,7 +32,7 @@ $fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = '
     
 
 
-        <h2 class="section-heading"><a href="/2505Chartreuse/fullsuspension.php">Full Suspension Bikes</a></h2>
+        <h2 class="section-heading"><a href="/2505Chartreuse/fullsuspension.php">Ful Suspension Bikes</a></h2>
         <?php
         while ($row = $fullsuspension->fetch_assoc()) {
                 echo '<section class="single-product">';
