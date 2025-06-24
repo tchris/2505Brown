@@ -189,6 +189,36 @@
     text-align: center;
 }
 
+/* Input Form Styling */
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.25rem;
+    color: #00ddff;
+    font-weight: bold;
+}
+
+.checkout-form input {
+    padding: 10px;
+    border: 1px solid #00ddff;
+    background-color: #000;
+    color: #00ddff;
+    border-radius: 6px;
+    font-size: 1rem;
+}
 
 
 /* Horizontal Rule... Cyber style!!!*/

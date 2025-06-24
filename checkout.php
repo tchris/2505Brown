@@ -37,24 +37,62 @@ $cart = $_SESSION['cart'] ?? [];
             <p>Your cart is empty. <a href="index.php">Return to shopping</a></p>
         <?php else: ?>
             <form action="storeinvoice.php" method="post" class="checkout-form">
-                <h2>Billing Info</h2>
-                <input name="cname" placeholder="Name" required>
-                <input name="caddy" placeholder="Address" required>
-                <input name="cstate" placeholder="State" required>
-                <input name="czip" placeholder="Zip" required>
-                <input name="cphone" placeholder="Phone" required>
-                <input name="cemail" placeholder="Email" required>
 
-                <h2>Shipping Info</h2>
-                <input name="sname" placeholder="Name" required>
-                <input name="saddy" placeholder="Address" required>
-                <input name="sstate" placeholder="State" required>
-                <input name="szip" placeholder="Zip" required>
-                <input name="sphone" placeholder="Phone" required>
-                <input name="semail" placeholder="Email" required>
+    <h2>Billing Info</h2>
+    <div class="form-group">
+        <label for="cname">Name</label>
+        <input id="cname" name="cname" required>
+    </div>
+    <div class="form-group">
+            <label for="caddy">Address</label>
+            <input id="caddy" name="caddy" required>
+        </div>
+        <div class="form-group">
+            <label for="cstate">State</label>
+            <input id="cstate" name="cstate" required>
+        </div>
+        <div class="form-group">
+            <label for="czip">Zip</label>
+            <input id="czip" name="czip" required>
+        </div>
+        <div class="form-group">
+            <label for="cphone">Phone</label>
+            <input id="cphone" name="cphone" required>
+        </div>
+        <div class="form-group">
+            <label for="cemail">Email</label>
+            <input id="cemail" name="cemail" required>
+        </div>
 
-                <button type="submit" class="buy-button">Submit Order</button>
-            </form>
+        <h2>Shipping Info</h2>
+        <div class="form-group">
+            <label for="sname">Name</label>
+            <input id="sname" name="sname" required>
+        </div>
+        <div class="form-group">
+            <label for="saddy">Address</label>
+            <input id="saddy" name="saddy" required>
+        </div>
+        <div class="form-group">
+            <label for="sstate">State</label>
+            <input id="sstate" name="sstate" required>
+        </div>
+        <div class="form-group">
+            <label for="szip">Zip</label>
+            <input id="szip" name="szip" required>
+        </div>
+        <div class="form-group">
+            <label for="sphone">Phone</label>
+            <input id="sphone" name="sphone" required>
+        </div>
+        <div class="form-group">
+            <label for="semail">Email</label>
+            <input id="semail" name="semail" required>
+        </div>
+
+        <button type="submit" class="buy-button">Submit Order</button>
+    </form>
+
         <?php endif; ?>
     </main>
 </body>
