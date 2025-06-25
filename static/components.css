@@ -262,6 +262,10 @@
             font-weight: bold;
         }
 
+        .button-container {
+            text-align: center;
+        }
+        
         .confirm-button {
     display: inline-block;
     text-align: center;
@@ -272,6 +276,7 @@
     border: none;
     border-radius: 8px;
     text-decoration: none;
+    white-space: nowrap;
     font-weight: bold;
     box-shadow: 0 0 8px #00ddff;
     transition: background 0.3s ease;
