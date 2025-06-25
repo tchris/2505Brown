@@ -56,51 +56,6 @@ $total = $subtotal;
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/components.css">
     <link rel="stylesheet" href="static/layout.css">
-    <style>
-        .invoice-box {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            border: 2px solid #00ddff;
-            box-shadow: 0 0 20px #00ddff;
-            background: black;
-            color: #00ddff;
-            border-radius: 12px;
-            font-size: 1rem;
-        }
-        .invoice-box h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .invoice-box .section {
-            margin-bottom: 2rem;
-        }
-        .invoice-box .section h2 {
-            font-size: 1.2rem;
-            margin-bottom: .5rem;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th, td {
-            border: 1px solid #00ddff;
-            padding: 0.5rem;
-            text-align: left;
-        }
-        th {
-            background-color: #111;
-        }
-        .total-row td {
-            border-top: 2px solid #00ddff;
-            font-weight: bold;
-        }
-        .buy-button {
-            display: block;
-            margin: 30px auto 0;
-        }
-    </style>
 </head>
 <body>
     <div class="hero">
