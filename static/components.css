@@ -263,7 +263,7 @@
         }
 
         .confirm-button {
-    display: inline-block;
+    display: block;
     text-align: center;
     margin: 10px 0px;
     padding: 10px 16px;
