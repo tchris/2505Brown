@@ -125,7 +125,7 @@ $total = $subtotal;
             <?php foreach ($_POST as $key => $value): ?>
                 <input type="hidden" name="<?= htmlspecialchars($key) ?>" value="<?= htmlspecialchars($value) ?>">
             <?php endforeach; ?>
-            <button type="submit" class="confirm-button">Confirm & Submit Order</button>
+            <button type="submit" class="confirm-button">SUBMIT ORDER</button>
         </form>
     </main>
 </body>
