@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 require 'database.php'; // ✅ Connect once
-$fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardtail'");
+$fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Full Suspens'");
 ?>
 
 <head>
