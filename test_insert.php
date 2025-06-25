@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 require 'database.php'; // Make sure this connects to your db_test database
 
 // Sample data
-$name = "Test User";
+$name = "Gooch";
 $phone = 5551234567;
 $date = date('Y-m-d'); // today's date
 $description = "This is a test description inserted by test_insert.php";
