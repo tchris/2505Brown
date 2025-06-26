@@ -232,6 +232,10 @@
     font-size: 1rem;
 }
 
+#ccity {
+    width: 50%;
+}
+
 #cstate {
     width: 60px;
     text-transform: uppercase;
