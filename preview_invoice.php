@@ -118,12 +118,47 @@ $total = $subtotal;
             </div>
 
         <div class="section">
+
             <h2>Ship To:</h2>
-            <p><?= htmlspecialchars($sname) ?><br>
-            <?= htmlspecialchars($saddy) ?><br>
-            <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
-            <?= htmlspecialchars($sphone) ?> | <?= htmlspecialchars($semail) ?></p>
-        </div>
+           
+            <div class="form-group">
+                <label for="sname">Name</label>
+                <input id="sname" name="sname" required>
+            </div>
+            
+            <div class="form-group">
+            <label for="saddy">Address</label>
+            <input id="saddy" name="saddy" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group city">
+                    <label for="scity">City</label>
+                    <input id="scity" name="scity" required>
+                </div>
+
+                <div class="form-group state">
+                    <label for="sstate">State</label>
+                    <input id="sstate" name="sstate" maxlength="2" pattern="[A-Za-z]{2}" required>
+                </div>
+
+                <div class="form-group zip">
+                    <label for="szip">Zip</label>
+                    <input id="szip" name="szip" maxlength="10" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group cphone">
+                    <label for="sphone">Phone</label>
+                    <input id="sphone" name="sphone" required>
+                </div> 
+
+                <div class="form-group cemail">
+                    <label for="semail">Email</label>
+                    <input id="semail" name="semail" required>
+                </div>
+            </div>
 
         <div class="section">
             <h2>Order Summary</h2>
