@@ -73,7 +73,7 @@ $total = $subtotal;
         <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
 
         <div class="section">
-            <h2 class="invoice-box">Bill To:</h2>
+            <h2>Bill To:</h2>
             <p><?= htmlspecialchars($cname) ?><br>
             <?= htmlspecialchars($caddy) ?><br>
             <?= htmlspecialchars($cstate) ?> <?= htmlspecialchars($czip) ?><br>
@@ -81,7 +81,7 @@ $total = $subtotal;
         </div>
 
         <div class="section">
-            <h2 class="invoice-box">Ship To:</h2>
+            <h2>Ship To:</h2>
             <p><?= htmlspecialchars($sname) ?><br>
             <?= htmlspecialchars($saddy) ?><br>
             <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
