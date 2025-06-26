@@ -72,7 +72,9 @@ $cart = $_SESSION['cart'] ?? [];
 
                 <p class="cart-total"><strong>Total: $<?= number_format($total, 2) ?></strong></p>
 
-                <a href="preview_invoice.php" class="buy-button">Proceed to Checkout</a>
+                <form action="preview_invoice.php" method="post">
+                <button type="submit" class="buy-button">Proceed to Checkout</button>
+                </form>
             <?php endif; ?>
         <?php endif; ?>
     </main>
