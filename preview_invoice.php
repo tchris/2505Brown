@@ -76,11 +76,6 @@ $total = $subtotal;
 
         <div class="section">
 
-        <?php if (empty($cart)): ?>
-            <p>Your cart is empty. <a href="index.php">Return to shopping</a></p>
-        <?php else: ?>
-            <form action="preview_invoice.php" method="post" class="checkout-form">
-                
             <h2>Bill To:</h2>
            
             <div class="form-group">
@@ -101,10 +96,11 @@ $total = $subtotal;
 
                 <div class="form-group">
                     <label for="cstate">State</label>
-                    <input id="cstate" name="cstate" maxlength="2" required>
+                    <input id="cstate" name="cstate" maxlength="2" pattern="[A-Za-z]{2}" required>
                 </div>
             </div>
- <?= htmlspecialchars($czip) ?><br>
+ 
+            <?= htmlspecialchars($czip) ?><br>
             <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
         </div>
 
