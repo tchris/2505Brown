@@ -76,8 +76,14 @@ $total = $subtotal;
 
         <div class="section">
             <h2>Bill To:</h2>
-            <p><?= htmlspecialchars($cname) ?><br>
-            <?= htmlspecialchars($caddy) ?><br>
+            <div class="form-group">
+                <label for="cname">Name</label>
+                <input id="cname" name="cname" required>
+            </div>
+            <div class="form-group">
+            <label for="caddy">Address</label>
+            <input id="caddy" name="caddy" required>
+            </div>
             <?= htmlspecialchars($cstate) ?> <?= htmlspecialchars($czip) ?><br>
             <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
         </div>
