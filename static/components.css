@@ -261,15 +261,15 @@
             border-top: 2px solid #00ddff;
             font-weight: bold;
         }
-/*
+
         .button-container {
             text-align: center;
         }
-*/        
+      
         .confirm-button {
     display: inline-block;
     text-align: center;
-    margin: 0px 50%;
+    margin: 0px;
     padding: 10px 50px;
     background-color: #00ddff;
     color: #000;
