@@ -104,9 +104,18 @@ $total = $subtotal;
                     <input id="czip" name="czip" maxlength="10" required>
                 </div>
             </div>
- 
-            <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
-        </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cphone">Phone</label>
+                    <input id="cphone" name="cphone" required>
+                </div> 
+                
+                <div class="form-group">
+                    <label for="cemail">Email</label>
+                    <input id="cemail" name="cemail" required>
+                </div>
+            </div>
 
         <div class="section">
             <h2>Ship To:</h2>

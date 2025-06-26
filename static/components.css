@@ -254,6 +254,14 @@
     width: 20%;
 }
 
+.form-group.cphone {
+    width: 30%;
+}
+
+.form-group.cemail {
+    width: 50%;
+}
+
 input {
     width: 100%; /* Ensures input fills its parent */
 }
