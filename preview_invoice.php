@@ -106,12 +106,12 @@ $total = $subtotal;
             </div>
 
             <div class="form-row">
-                <div class="form-group">
+                <div class="form-group cphone">
                     <label for="cphone">Phone</label>
                     <input id="cphone" name="cphone" required>
                 </div> 
-                
-                <div class="form-group">
+
+                <div class="form-group cemail">
                     <label for="cemail">Email</label>
                     <input id="cemail" name="cemail" required>
                 </div>
