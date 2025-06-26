@@ -98,9 +98,13 @@ $total = $subtotal;
                     <label for="cstate">State</label>
                     <input id="cstate" name="cstate" maxlength="2" pattern="[A-Za-z]{2}" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="czip">Zip</label>
+                    <input id="czip" name="czip" maxlength="10" required>
+                </div>
             </div>
  
-            <?= htmlspecialchars($czip) ?><br>
             <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
         </div>
 
