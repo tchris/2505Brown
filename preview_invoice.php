@@ -75,6 +75,12 @@ $total = $subtotal;
         <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
 
         <div class="section">
+
+        <?php if (empty($cart)): ?>
+            <p>Your cart is empty. <a href="index.php">Return to shopping</a></p>
+        <?php else: ?>
+            <form action="preview_invoice.php" method="post" class="checkout-form">
+                
             <h2>Bill To:</h2>
            
             <div class="form-group">

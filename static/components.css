@@ -232,6 +232,12 @@
     font-size: 1rem;
 }
 
+#cstate {
+    width: 60px;
+    text-transform: uppercase;
+}
+
+
 /* Invoice Table Styling */
 
 .invoice-box {
