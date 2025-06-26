@@ -84,7 +84,10 @@ $total = $subtotal;
             <label for="caddy">Address</label>
             <input id="caddy" name="caddy" required>
             </div>
-            <?= htmlspecialchars($cstate) ?> <?= htmlspecialchars($czip) ?><br>
+            <div class="form-group">
+                <label for="ccity">City</label>
+                <input id="ccity" name="ccity" required>
+            </div> <?= htmlspecialchars($czip) ?><br>
             <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
         </div>
 
