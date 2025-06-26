@@ -218,10 +218,9 @@
 }
 
 .form-row .form-group {
-    flex: 1; 
-    min-width: 150px;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .checkout-form input {
     padding: 10px;
