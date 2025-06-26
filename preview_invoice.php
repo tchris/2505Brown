@@ -89,17 +89,17 @@ $total = $subtotal;
             </div>
             
             <div class="form-row">
-                <div class="form-group">
+                <div class="form-group city">
                     <label for="ccity">City</label>
                     <input id="ccity" name="ccity" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group state">
                     <label for="cstate">State</label>
                     <input id="cstate" name="cstate" maxlength="2" pattern="[A-Za-z]{2}" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group zip">
                     <label for="czip">Zip</label>
                     <input id="czip" name="czip" maxlength="10" required>
                 </div>

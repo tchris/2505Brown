@@ -238,22 +238,27 @@
     flex-wrap: wrap;
 }
 
-.form-row .form-group {
+.form-group {
     display: flex;
     flex-direction: column;
 }
 
-#ccity {
-    flex: 0 1 60%;
+.form-group.city {
+    width: 60%;
 }
 
-#cstate {
-    flex: 0 1 10%;
+.form-group.state {
+    width: 10%;
 }
 
-#czip {
-    flex: 0 1 30%;
+.form-group.zip {
+    width: 30%;
 }
+
+input {
+    width: 100%; /* Ensures input fills its parent */
+}
+
 
 
 
