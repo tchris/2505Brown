@@ -87,7 +87,7 @@ $total = $subtotal;
             <div class="form-group">
                 <label for="ccity">City</label>
                 <input id="ccity" name="ccity" required>
-            </div> <?= htmlspecialchars($czip) ?><br>
+             <?= htmlspecialchars($czip) ?></div><br>
             <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
         </div>
 
