@@ -2,6 +2,8 @@
 session_start();
 require 'database.php';
 
+date_default_timezone_set("America/Denver");
+
 $cart = $_SESSION['cart'] ?? [];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
