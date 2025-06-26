@@ -241,22 +241,20 @@
 .form-row .form-group {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 #ccity {
-    flex: 2;
-    min-width: 500 px;
+    flex-basis: 60%;
 }
 
 #cstate {
-    width: 60px;
+    flex-basis: 10%
     text-transform: uppercase;
-    padding: 0 4px;
 }
 
 #czip {
-    width: 100px;
-    padding: 0 4px;
+    flex-basis: 30%;
 }
 
 
