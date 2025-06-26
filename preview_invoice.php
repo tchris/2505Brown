@@ -70,7 +70,7 @@ $total = $subtotal;
 
     <main class="invoice-box">
         <h1>Invoice Preview</h1>
-        <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
+        <h2>Date:<h2><p><?= date("Y-m-d") ?></p>
 
         <div class="section">
             <h2>Bill To:</h2>
