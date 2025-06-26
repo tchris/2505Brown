@@ -237,6 +237,10 @@
     text-transform: uppercase;
 }
 
+#czip {
+    width: 120px;
+}
+
 
 /* Invoice Table Styling */
 
