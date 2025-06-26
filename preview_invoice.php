@@ -76,18 +76,29 @@ $total = $subtotal;
 
         <div class="section">
             <h2>Bill To:</h2>
+           
             <div class="form-group">
                 <label for="cname">Name</label>
                 <input id="cname" name="cname" required>
             </div>
+            
             <div class="form-group">
             <label for="caddy">Address</label>
             <input id="caddy" name="caddy" required>
             </div>
-            <div class="form-group">
-                <label for="ccity">City</label>
-                <input id="ccity" name="ccity" required>
-             <?= htmlspecialchars($czip) ?></div><br>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ccity">City</label>
+                    <input id="ccity" name="ccity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cstate">State</label>
+                    <input id="cstate" name="cstate" maxlength="2" required>
+                </div>
+            </div>
+ <?= htmlspecialchars($czip) ?><br>
             <?= htmlspecialchars($cphone) ?> | <?= htmlspecialchars($cemail) ?></p>
         </div>
 

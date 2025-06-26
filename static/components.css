@@ -211,6 +211,18 @@
     font-weight: bold;
 }
 
+.form-row {
+    display: flex;
+    gap: 1rem; 
+    flex-wrap: wrap; 
+}
+
+.form-row .form-group {
+    flex: 1; 
+    min-width: 150px;
+}
+
+
 .checkout-form input {
     padding: 10px;
     border: 1px solid #00ddff;
