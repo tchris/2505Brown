@@ -72,7 +72,7 @@ if (!$stmt) {
     die("Invoice prepare failed: " . $mysqli->error);
 }
 
-$stmt->bind_param("ssssssssssssssssdd", 
+$stmt->bind_param("ssssssssssssssdd", 
     $cname, $caddy, $ccity, $cstate, $czip, $cphone, $cemail,
     $sname, $saddy, $scity, $sstate, $szip, $sphone, $semail,
     $subtotal, $total
