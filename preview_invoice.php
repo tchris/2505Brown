@@ -72,95 +72,95 @@ $total = $subtotal;
         </h2>
     </div>
 
+    <form action="confirm_order.php" method="post">
     <main class="invoice-box">
+
         <h1>Invoice Preview</h1>
         <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
 
         <div class="section">
-
             <h2>Bill To:</h2>
-           
             <div class="form-group">
                 <label for="cname">Name</label>
-                <input id="cname" name="cname" required>
+                <input id="cname" name="cname" required value="<?= htmlspecialchars($cname) ?>">
             </div>
-            
+
             <div class="form-group">
-            <label for="caddy">Address</label>
-            <input id="caddy" name="caddy" required>
+                <label for="caddy">Address</label>
+                <input id="caddy" name="caddy" required value="<?= htmlspecialchars($caddy) ?>">
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group city">
                     <label for="ccity">City</label>
-                    <input id="ccity" name="ccity" required>
+                    <input id="ccity" name="ccity" required value="<?= htmlspecialchars($ccity) ?>">
                 </div>
 
                 <div class="form-group state">
                     <label for="cstate">State</label>
-                    <input id="cstate" name="cstate" maxlength="2" pattern="[A-Za-z]{2}" required>
+                    <input id="cstate" name="cstate" maxlength="2" pattern="[A-Za-z]{2}" required value="<?= htmlspecialchars($cstate) ?>">
                 </div>
 
                 <div class="form-group zip">
                     <label for="czip">Zip</label>
-                    <input id="czip" name="czip" maxlength="10" required>
+                    <input id="czip" name="czip" maxlength="10" required value="<?= htmlspecialchars($czip) ?>">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group cphone">
                     <label for="cphone">Phone</label>
-                    <input id="cphone" name="cphone" required>
-                </div> 
+                    <input id="cphone" name="cphone" required value="<?= htmlspecialchars($cphone) ?>">
+                </div>
 
                 <div class="form-group cemail">
                     <label for="cemail">Email</label>
-                    <input id="cemail" name="cemail" required>
+                    <input id="cemail" name="cemail" required value="<?= htmlspecialchars($cemail) ?>">
                 </div>
             </div>
+        </div>
 
         <div class="section">
-
             <h2>Ship To:</h2>
-           
             <div class="form-group">
                 <label for="sname">Name</label>
-                <input id="sname" name="sname" required>
+                <input id="sname" name="sname" required value="<?= htmlspecialchars($sname) ?>">
             </div>
-            
+
             <div class="form-group">
-            <label for="saddy">Address</label>
-            <input id="saddy" name="saddy" required>
+                <label for="saddy">Address</label>
+                <input id="saddy" name="saddy" required value="<?= htmlspecialchars($saddy) ?>">
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group city">
                     <label for="scity">City</label>
-                    <input id="scity" name="scity" required>
+                    <input id="scity" name="scity" required value="<?= htmlspecialchars($scity) ?>">
                 </div>
 
                 <div class="form-group state">
                     <label for="sstate">State</label>
-                    <input id="sstate" name="sstate" maxlength="2" pattern="[A-Za-z]{2}" required>
+                    <input id="sstate" name="sstate" maxlength="2" pattern="[A-Za-z]{2}" required value="<?= htmlspecialchars($sstate) ?>">
                 </div>
 
                 <div class="form-group zip">
                     <label for="szip">Zip</label>
-                    <input id="szip" name="szip" maxlength="10" required>
+                    <input id="szip" name="szip" maxlength="10" required value="<?= htmlspecialchars($szip) ?>">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group cphone">
                     <label for="sphone">Phone</label>
-                    <input id="sphone" name="sphone" required>
-                </div> 
+                    <input id="sphone" name="sphone" required value="<?= htmlspecialchars($sphone) ?>">
+                </div>
 
                 <div class="form-group cemail">
                     <label for="semail">Email</label>
-                    <input id="semail" name="semail" required>
+                    <input id="semail" name="semail" required value="<?= htmlspecialchars($semail) ?>">
                 </div>
             </div>
+        </div>
 
         <div class="section">
             <h2>Order Summary</h2>
@@ -194,15 +194,11 @@ $total = $subtotal;
             </table>
         </div>
 
-        <form action="confirm_order.php" method="post">
-            <!-- Hidden fields to preserve all input data -->
-            <?php foreach ($_POST as $key => $value): ?>
-                <input type="hidden" name="<?= htmlspecialchars($key) ?>" value="<?= htmlspecialchars($value) ?>">
-            <?php endforeach; ?>
-            <div class="button-container">
+        <div class="button-container">
             <button type="submit" class="confirm-button">SUBMIT ORDER</button>
-            </div>
-        </form>
+        </div>
+
     </main>
+    </form>
 </body>
 </html>
