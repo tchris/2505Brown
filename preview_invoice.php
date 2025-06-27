@@ -14,12 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
 // Grab checkout form data
 $cname   = $_POST['cname'];
 $caddy   = $_POST['caddy'];
+$ccity   = $_POST['ccity'];
 $cstate  = $_POST['cstate'];
 $czip    = $_POST['czip'];
 $cphone  = $_POST['cphone'];
 $cemail  = $_POST['cemail'];
 $sname   = $_POST['sname'];
 $saddy   = $_POST['saddy'];
+$scity   = $_POST['scity'];
 $sstate  = $_POST['sstate'];
 $szip    = $_POST['szip'];
 $sphone  = $_POST['sphone'];

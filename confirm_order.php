@@ -17,12 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
 // 1. Capture form data
 $cname   = $_POST['cname'];
 $caddy   = $_POST['caddy'];
+$ccity   = $_POST['ccity'];
 $cstate  = $_POST['cstate'];
 $czip    = $_POST['czip'];
 $cphone  = $_POST['cphone'];
 $cemail  = $_POST['cemail'];
 $sname   = $_POST['sname'];
 $saddy   = $_POST['saddy'];
+$scity   = $_POST['scity'];
 $sstate  = $_POST['sstate'];
 $szip    = $_POST['szip'];
 $sphone  = $_POST['sphone'];
@@ -56,7 +58,7 @@ $total = $subtotal;
 // 3. Insert invoice
 $stmt = $mysqli->prepare("
     INSERT INTO invoice 
-    (inv_date, ship_date, cname, caddy, cstate, czip, cphone, cemail, sname, saddy, sstate, szip, sphone, semail, subtotal, total) 
+    (inv_date, ship_date, cname, caddy, ccity, cstate, czip, cphone, cemail, sname, saddy, scity, sstate, szip, sphone, semail, subtotal, total) 
     VALUES 
     (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
@@ -65,9 +67,9 @@ if (!$stmt) {
     die("Invoice prepare failed: " . $mysqli->error);
 }
 
-$stmt->bind_param("ssssssssssssssdd", 
-    $cname, $caddy, $cstate, $czip, $cphone, $cemail,
-    $sname, $saddy, $sstate, $szip, $sphone, $semail,
+$stmt->bind_param("ssssssssssssssssdd", 
+    $cname, $caddy, $ccity, $cstate, $czip, $cphone, $cemail,
+    $sname, $saddy, $scity, $sstate, $szip, $sphone, $semail,
     $subtotal, $total
 );
 
