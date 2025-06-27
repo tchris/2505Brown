@@ -65,7 +65,7 @@ $stmt = $mysqli->prepare("
     INSERT INTO invoice 
     (inv_date, ship_date, cname, caddy, ccity, cstate, czip, cphone, cemail, sname, saddy, scity, sstate, szip, sphone, semail, subtotal, total) 
     VALUES 
-    (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
 
 if (!$stmt) {
