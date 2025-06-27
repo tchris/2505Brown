@@ -1,6 +1,4 @@
-
 <?php
-/*
 session_start();
 $bike_id = $_GET['id'] ?? null;
 
@@ -22,4 +20,3 @@ if ($bike_id && is_numeric($bike_id)) {
 } else {
     echo "Invalid product.";
 }
-*/
