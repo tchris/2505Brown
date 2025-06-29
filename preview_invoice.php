@@ -61,6 +61,9 @@ $total = $subtotal;
     <link rel="stylesheet" href="static/components.css">
     <link rel="stylesheet" href="static/layout.css">
 </head>
+
+<script src="static/js/invoice.js"></script>
+
 <body>
     <div class="hero">
         <img src="img/CP-Bike.png" class="hero__image">
