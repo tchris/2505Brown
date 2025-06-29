@@ -125,7 +125,7 @@ $total = $subtotal;
 
         <div class="copyBilling">
             <input type="checkbox" id="copyBilling">
-            <label for="copyBilling">Shipping same as billing</label>
+            <label for="copyBilling">SHIPPING SAME AS BILLING</label>
         </div>
 
 
