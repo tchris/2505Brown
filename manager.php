@@ -25,7 +25,9 @@ if (!isset($_SESSION['manager_logged_in'])) {
       <img src="img/CP-Bike.png" class="hero__image">
       <h1 class="hero__title">TRON Bike Shop – Manager Portal</h1>
       <h2 class="hero__menu">
-        <a href="index.php">Home</a> | <a href="logout.php">Logout</a>
+        <a href="index_manager.php">Inventory Hub</a> | 
+        <a href="index.php">Shop Home</a> | 
+        <a href="logout.php">Logout</a>
       </h2>
     </div>
 
@@ -35,7 +37,7 @@ if (!isset($_SESSION['manager_logged_in'])) {
         <h2 class="section-title">Management Actions</h2>
         
         <div class="manager-card">
-          <a href="edit_inventory.php" class="buy-button">Edit Inventory</a>
+          <a href="index_manager.php" class="buy-button">Edit Inventory</a>
         </div>
 
         <div class="manager-card">
