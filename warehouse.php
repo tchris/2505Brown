@@ -60,4 +60,8 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
 
     </div> <!-- end .page-wrapper -->
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5df7ce64e22ccd36112fffa3377e36cd6d15b9b8
