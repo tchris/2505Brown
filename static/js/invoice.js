@@ -23,3 +23,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const fieldsToWatch = [
+        'cname', 'caddy', 'ccity', 'cstate', 'czip', 'cphone', 'cemail',
+        'sname', 'saddy', 'scity', 'sstate', 'szip', 'sphone', 'semail'
+    ];
+
+    // Load stored values
+    fieldsToWatch.forEach(id => {
+        const field = document.getElementById(id);
+        if (field && sessionStorage.getItem(id)) {
+            field.value = sessionStorage.getItem(id);
+        }
+
+        // Save changes
+        if (field) {
+            field.addEventListener('input', () => {
+                sessionStorage.setItem(id, field.value);
+            });
+        }
+    });
+});
+
+document.querySelector('form').addEventListener('submit', () => {
+    fieldsToWatch.forEach(id => sessionStorage.removeItem(id));
+});
