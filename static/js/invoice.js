@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const to = document.getElementById(toId);
             if (from && to) {
                 to.value = this.checked ? from.value : '';
+                to.disabled = this.checked;
             }
         });
     });
