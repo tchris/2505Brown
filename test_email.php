@@ -17,13 +17,13 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'tronbikectu@gmail.com';              // your Gmail address
-    $mail->Password = 'ghedvlefxfjcvgpb';                // your Gmail App Password
+    $mail->Username = 'suffermedaily@gmail.com';             // your Gmail address
+    $mail->Password = 'ujtrzuxvdpetgksu';                    // Gmail App Password (no spaces)
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
     // Sender & recipient
-    $mail->setFrom('tronbikectu@gmail.com', 'TRON Cycles');
+    $mail->setFrom('suffermedaily@gmail.com', 'TRON Cycles');
     $mail->addAddress('John.L.Szpyrka@outlook.com', 'John Szpyrka');
 
     // Email content
