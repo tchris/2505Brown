@@ -9,11 +9,6 @@ require 'database.php';
 
 $cart = $_SESSION['cart'] ?? [];
 
-// Uncomment these lines temporarily for debugging if needed
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
     echo "<p>Invalid access or empty cart.</p>";
     exit;
