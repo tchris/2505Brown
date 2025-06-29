@@ -266,7 +266,20 @@ input {
     width: 100%; /* Ensures input fills its parent */
 }
 
+/*Radio Button (Same as billing) style */
 
+.copyBilling {
+    display: flex;
+    align-items: center;  /* Aligns checkbox and label vertically */
+    gap: 0.5rem;          /* Adds space between checkbox and label */
+    margin-bottom: 1rem;  /* Optional: gives some spacing from the section below */
+}
+
+.copyBilling input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
 
 
 /* Invoice Table Styling */

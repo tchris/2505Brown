@@ -123,12 +123,11 @@ $total = $subtotal;
             </div>
         </div>
 
-        <div class="form-group">
-            <label>
-                <input type="checkbox" id="copyBilling">
-                Shipping same as billing
-            </label>
+        <div class="copyBilling">
+            <input type="checkbox" id="copyBilling">
+            <label for="copyBilling">Shipping same as billing</label>
         </div>
+
 
         <div class="section">
             <h2>Ship To:</h2>
