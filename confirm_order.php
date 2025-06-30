@@ -106,7 +106,10 @@ unset($_SESSION['cart']);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Order Confirmation</title>
+    <title>Invoice Preview – TRON Cycles</title>
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/layout.css">
 </head>
 <body>
     <h1>Thank You for Your Order!</h1>
