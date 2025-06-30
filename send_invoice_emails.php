@@ -1,3 +1,4 @@
+<?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -5,29 +6,29 @@ require 'lib/PHPMailer/src/PHPMailer.php';
 require 'lib/PHPMailer/src/SMTP.php';
 require 'lib/PHPMailer/src/Exception.php';
 
-$pdfPath = __DIR__ . "/invoices/invoice_$order_id.pdf"; // from above or session
+function sendInvoiceEmails($pdfPath, $customer_email, $customer_name, $order_id) {
+    $mail = new PHPMailer(true);
 
-$mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'suffermedaily@gmail.com';
+        $mail->Password = 'ujtrzuxvdpetgksu'; // your app password
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
 
-try {
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'suffermedaily@gmail.com';
-    $mail->Password = 'ujtrzuxvdpetgksu';  // your app password (no spaces)
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+        $mail->setFrom('suffermedaily@gmail.com', 'TRON Cycles');
+        $mail->addAddress($customer_email, $customer_name);
+        $mail->addAddress('tronbikesctu@gmail.com', 'Fulfillment Team');
 
-    $mail->setFrom('suffermedaily@gmail.com', 'TRON Cycles');
-    $mail->addAddress($customer_email, $customer_name);             // Customer
-    $mail->addAddress('orders@troncycles.com', 'Fulfillment Team'); // Team
+        $mail->isHTML(true);
+        $mail->Subject = "Your TRON Cycles Order #$order_id";
+        $mail->Body = "Thank you for your order. Your invoice is attached.";
+        $mail->addAttachment($pdfPath);
 
-    $mail->isHTML(true);
-    $mail->Subject = "Your TRON Cycles Order #$order_id";
-    $mail->Body = "Thank you for your order. Your invoice is attached.";
-    $mail->addAttachment($pdfPath);
-
-    $mail->send();
-} catch (Exception $e) {
-    error_log("❌ Email Error: " . $mail->ErrorInfo);
+        $mail->send();
+    } catch (Exception $e) {
+        error_log("❌ Email Error: " . $mail->ErrorInfo);
+    }
 }

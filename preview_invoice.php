@@ -52,9 +52,8 @@ while ($bike = $result->fetch_assoc()) {
 
 $total = $subtotal;
 
-    require 'generate_invoice_pdf.php';  // Step 1: Generate PDF and get filepath
-    require 'send_invoice_emails.php';   // Step 2: Send to both recipients
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

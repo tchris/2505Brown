@@ -1,5 +1,4 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -46,7 +45,7 @@ while ($bike = $result->fetch_assoc()) {
     $items[] = [
         'bike_id' => $id,
         'qty' => $qty,
-        'price_each' => $price, // used for display only
+        'price_each' => $price,
         'name' => $bike['name']
     ];
 
@@ -79,7 +78,7 @@ if (!$stmt->execute()) {
 
 $inv_id = $mysqli->insert_id;
 
-// 4. Insert invoice line items into `invoice_products` (no price_each)
+// 4. Insert line items
 $stmt_items = $mysqli->prepare("INSERT INTO invoice_products (inv_id, bike_id, qty) VALUES (?, ?, ?)");
 if (!$stmt_items) {
     die("Line item prepare failed: " . $mysqli->error);
@@ -92,52 +91,13 @@ foreach ($items as $item) {
     }
 }
 
-// 5. Clear cart
+// 5. Generate invoice & send emails
+require 'generate_invoice_pdf.php';
+require 'send_invoice_emails.php';
+
+$pdfPath = generateInvoicePDF($inv_id, $cname);
+sendInvoiceEmails($pdfPath, $cemail, $cname, $inv_id);
+
+// 6. Clear cart
 unset($_SESSION['cart']);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Order Confirmation – TRON Cycles</title>
-    <link rel="stylesheet" href="static/base.css">
-    <link rel="stylesheet" href="static/components.css">
-    <link rel="stylesheet" href="static/layout.css">
-</head>
-<body>
-    <div class="hero">
-        <img src="img/CP-Bike.png" class="hero__image">
-        <h1 class="hero__title"><a href="/2505Chartreuse/">TRON Bike Shop</a></h1>
-        <h2 class="hero__menu">
-            <a href="/2505Chartreuse/hardtail.php">Hardtail</a> |
-            <a href="/2505Chartreuse/fullsuspension.php">Full Suspension</a> |
-            <a href="/2505Chartreuse/accessories.php">Accessories Galore</a>
-        </h2>
-    </div>
-
-    <main>
-        <h1 class="section-heading">Thank You for Your Order!</h1>
-        <p>Invoice #: <strong><?= $inv_id ?></strong></p>
-
-        <h2>Shipping To</h2>
-        <p><?= htmlspecialchars($sname) ?><br>
-        <?= htmlspecialchars($saddy) ?><br>
-        <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
-        <?= htmlspecialchars($semail) ?> | <?= htmlspecialchars($sphone) ?></p>
-
-        <h2>Order Summary</h2>
-        <ul class="cart-list">
-            <?php foreach ($items as $item): ?>
-                <li class="cart-item">
-                    <?= htmlspecialchars($item['name']) ?> × <?= $item['qty'] ?> – $<?= number_format($item['qty'] * $item['price_each'], 2) ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-
-        <p class="cart-total"><strong>Total: $<?= number_format($total, 2) ?></strong></p>
-
-        <a href="index.php" class="buy-button">Back to Home</a>
-    </main>
-</body>
-</html>
