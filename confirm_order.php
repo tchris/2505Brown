@@ -101,3 +101,31 @@ sendInvoiceEmails($pdfPath, $cemail, $cname, $inv_id);
 // 6. Clear cart
 unset($_SESSION['cart']);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <h1>Thank You for Your Order!</h1>
+    <p>Invoice #: <strong><?= $inv_id ?></strong></p>
+
+    <h2>Shipping To:</h2>
+    <p><?= htmlspecialchars($sname) ?><br>
+    <?= htmlspecialchars($saddy) ?><br>
+    <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
+    <?= htmlspecialchars($semail) ?> | <?= htmlspecialchars($sphone) ?></p>
+
+    <h2>Order Summary</h2>
+    <ul>
+        <?php foreach ($items as $item): ?>
+            <li><?= htmlspecialchars($item['name']) ?> × <?= $item['qty'] ?> – $<?= number_format($item['qty'] * $item['price_each'], 2) ?></li>
+        <?php endforeach; ?>
+    </ul>
+
+    <p><strong>Total: $<?= number_format($total, 2) ?></strong></p>
+    <a href="index.php">Back to Home</a>
+</body>
+</html>
