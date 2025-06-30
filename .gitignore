@@ -3,6 +3,7 @@ composer.phar
 composer.lock
 vendor/
 error_log
+invoices/
 build/
 tmp/
 .idea/
