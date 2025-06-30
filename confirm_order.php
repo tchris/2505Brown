@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
     exit;
 }
 
-// 1. Capture form data
+// Capture form data
 $cname   = $_POST['cname'];
 $caddy   = $_POST['caddy'];
 $ccity   = $_POST['ccity'];
@@ -29,7 +29,6 @@ $szip    = $_POST['szip'];
 $sphone  = $_POST['sphone'];
 $semail  = $_POST['semail'];
 
-// 2. Get product data and calculate totals
 $bike_ids = implode(',', array_map('intval', array_keys($cart)));
 $result = $mysqli->query("SELECT * FROM Mountain_Bike WHERE id IN ($bike_ids)");
 
@@ -54,7 +53,7 @@ while ($bike = $result->fetch_assoc()) {
 
 $total = $subtotal;
 
-// 3. Insert invoice
+// Insert invoice
 $stmt = $mysqli->prepare("
     INSERT INTO invoice 
     (inv_date, ship_date, cname, caddy, ccity, cstate, czip, cphone, cemail, sname, saddy, scity, sstate, szip, sphone, semail, subtotal, total) 
@@ -62,43 +61,30 @@ $stmt = $mysqli->prepare("
     (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
 
-if (!$stmt) {
-    die("Invoice prepare failed: " . $mysqli->error);
-}
-
 $stmt->bind_param("ssssssssssssssdd", 
     $cname, $caddy, $ccity, $cstate, $czip, $cphone, $cemail,
     $sname, $saddy, $scity, $sstate, $szip, $sphone, $semail,
     $subtotal, $total
 );
 
-if (!$stmt->execute()) {
-    die("Invoice insert failed: " . $stmt->error);
-}
-
+$stmt->execute();
 $inv_id = $mysqli->insert_id;
 
-// 4. Insert line items
+// Insert line items
 $stmt_items = $mysqli->prepare("INSERT INTO invoice_products (inv_id, bike_id, qty) VALUES (?, ?, ?)");
-if (!$stmt_items) {
-    die("Line item prepare failed: " . $mysqli->error);
-}
-
 foreach ($items as $item) {
     $stmt_items->bind_param("iii", $inv_id, $item['bike_id'], $item['qty']);
-    if (!$stmt_items->execute()) {
-        die("Line item insert failed: " . $stmt_items->error);
-    }
+    $stmt_items->execute();
 }
 
-// 5. Generate invoice & send emails
+// Generate and email PDF
 require 'generate_invoice_pdf.php';
 require 'send_invoice_emails.php';
 
 $pdfPath = generateInvoicePDF($inv_id, $cname);
 sendInvoiceEmails($pdfPath, $cemail, $cname, $inv_id);
 
-// 6. Clear cart
+// Clear cart
 unset($_SESSION['cart']);
 ?>
 
@@ -106,29 +92,78 @@ unset($_SESSION['cart']);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invoice Preview – TRON Cycles</title>
+    <title>Order Confirmation – TRON Cycles</title>
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/components.css">
     <link rel="stylesheet" href="static/layout.css">
 </head>
 <body>
-    <h1>Thank You for Your Order!</h1>
-    <p>Invoice #: <strong><?= $inv_id ?></strong></p>
+    <div class="hero">
+        <img src="img/CP-Bike.png" class="hero__image">
+        <h1 class="hero__title"><a href="/2505Chartreuse/">TRON Bike Shop</a></h1>
+        <h2 class="hero__menu">
+            <a href="/2505Chartreuse/hardtail.php">Hardtail</a> |
+            <a href="/2505Chartreuse/fullsuspension.php">Full Suspension</a> |
+            <a href="/2505Chartreuse/accessories.php">Accessories Galore</a>
+        </h2>
+    </div>
 
-    <h2>Shipping To:</h2>
-    <p><?= htmlspecialchars($sname) ?><br>
-    <?= htmlspecialchars($saddy) ?><br>
-    <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
-    <?= htmlspecialchars($semail) ?> | <?= htmlspecialchars($sphone) ?></p>
+    <main class="invoice-box">
+        <h1>Thank You for Your Order!</h1>
+        <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
+        <p><strong>Invoice #:</strong> <?= $inv_id ?></p>
 
-    <h2>Order Summary</h2>
-    <ul>
-        <?php foreach ($items as $item): ?>
-            <li><?= htmlspecialchars($item['name']) ?> × <?= $item['qty'] ?> – $<?= number_format($item['qty'] * $item['price_each'], 2) ?></li>
-        <?php endforeach; ?>
-    </ul>
+        <div class="section">
+            <h2>Bill To:</h2>
+            <p><?= htmlspecialchars($cname) ?><br>
+            <?= htmlspecialchars($caddy) ?><br>
+            <?= htmlspecialchars($ccity) ?>, <?= htmlspecialchars($cstate) ?> <?= htmlspecialchars($czip) ?><br>
+            <?= htmlspecialchars($cemail) ?> | <?= htmlspecialchars($cphone) ?></p>
+        </div>
 
-    <p><strong>Total: $<?= number_format($total, 2) ?></strong></p>
-    <a href="index.php">Back to Home</a>
+        <div class="section">
+            <h2>Ship To:</h2>
+            <p><?= htmlspecialchars($sname) ?><br>
+            <?= htmlspecialchars($saddy) ?><br>
+            <?= htmlspecialchars($scity) ?>, <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
+            <?= htmlspecialchars($semail) ?> | <?= htmlspecialchars($sphone) ?></p>
+        </div>
+
+        <div class="section">
+            <h2>Order Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Qty</th>
+                        <th>Description</th>
+                        <th>Each</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($items as $item): ?>
+                    <tr>
+                        <td><?= $item['qty'] ?></td>
+                        <td><?= htmlspecialchars($item['name']) ?></td>
+                        <td>$<?= number_format($item['price_each'], 2) ?></td>
+                        <td>$<?= number_format($item['qty'] * $item['price_each'], 2) ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <tr class="total-row">
+                        <td colspan="3">Subtotal</td>
+                        <td>$<?= number_format($subtotal, 2) ?></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3">Total</td>
+                        <td>$<?= number_format($total, 2) ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="button-container">
+            <a class="confirm-button" href="index.php">Back to Home</a>
+        </div>
+    </main>
 </body>
 </html>
