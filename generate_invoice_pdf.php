@@ -1,6 +1,8 @@
 <?php
+
+require __DIR__ . '/vendor/autoload.php';
+
 use Dompdf\Dompdf;
-require 'vendor/autoload.php';
 
 function generateInvoicePDF($order_id, $customer_name) {
     $html = "<h1>Invoice for Order #$order_id</h1><p>Customer: $customer_name</p>";
