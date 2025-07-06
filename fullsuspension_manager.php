@@ -23,10 +23,16 @@ $fullsuspension = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = '
 <body>
   <div class="page-wrapper">
 
+    <!-- Hero Wrapper -->
     <div class="hero">
       <img src="img/CP-Bike.png" class="hero__image">
-      <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop – Manager Portal</a></h1>
-      <h2 class="hero__menu"><a href="/2505Chartreuse/hardtail_manager.php">Hardtail</a> | <a href="/2505Chartreuse/fullsuspension_manager.php">Full Suspension</a> | <a href="/2505Chartreuse/accessories_manager.php">Accessories</a></h2>
+      <h1 class="hero__title"><a href="/2505Chartreuse/index_manager.php">TRON Bike Shop – Manager Portal</a></h1>
+      <h2 class="hero__menu">
+        <a href="/2505Chartreuse/hardtail_manager.php">Manage Hardtails</a> |
+        <a href="/2505Chartreuse/fullsuspension_manager.php">Manage Full Suspension</a> |
+        <a href="/2505Chartreuse/accessories_manager.php">Manage Accessories</a> |
+        <a href="/2505Chartreuse/logout.php">Logout</a>
+      </h2>
     </div>
 
     <main>
