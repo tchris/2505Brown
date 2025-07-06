@@ -24,8 +24,7 @@ if (!isset($_SESSION['manager_logged_in'])) {
     <div class="hero">
       <img src="img/CP-Bike.png" class="hero__image">
       <h1 class="hero__title">TRON Bike Shop – Manager Portal</h1>
-      <h2 class="hero__menu">
-        <a href="index_manager.php">Inventory Hub</a> |  
+      <h2 class="hero__menu"> |  
         <a href="logout.php">Logout</a>
       </h2>
     </div>
