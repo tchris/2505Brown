@@ -25,16 +25,19 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
   <div class="page-wrapper">
 
     <!-- Hero Wrapper -->
-    <div class="hero">
-      <img src="img/CP-Bike.png" class="hero__image">
-      <h1 class="hero__title"><a href="/2505Chartreuse/index_manager.php">TRON Bike Shop – Manager Portal</a></h1>
-      <h2 class="hero__menu">
-        <a href="/2505Chartreuse/hardtail_manager.php">Manage Hardtails</a> |
-        <a href="/2505Chartreuse/fullsuspension_manager.php">Manage Full Suspension</a> |
-        <a href="/2505Chartreuse/accessories_manager.php">Manage Accessories</a> |
-        <a href="/2505Chartreuse/logout.php">Logout</a>
-      </h2>
-    </div>
+   <div class="hero">
+  <img src="img/CP-Bike.png" class="hero__image">
+  <h1 class="hero__title">TRON Bike Shop – Manager Portal</h1>
+  <h2 class="hero__menu">
+    <a href="manager.php">Manager Home</a> | 
+    <a href="index_manager.php">Manage Inventory</a> | 
+    <a href="hardtail_manager.php">Hardtail</a> | 
+    <a href="fullsuspension_manager.php">Full Suspension</a> | 
+    <a href="accessories_manager.php">Accessories</a> | 
+    <a href="logout.php">Logout</a>
+  </h2>
+</div>
+
 
     <main>
       <h2 class="section-heading"><a href="/2505Chartreuse/hardtail_manager.php">Manage Hardtail Bikes</a></h2>
