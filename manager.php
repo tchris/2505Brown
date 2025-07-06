@@ -39,17 +39,9 @@ if (!isset($_SESSION['manager_logged_in'])) {
         </div>
 
         <div class="manager-card">
-          <a href="view_reports.php" class="buy-button">View Sales Reports</a>
-        </div>
-
-        <div class="manager-card">
           <a href="manage_discounts.php" class="buy-button">Manage Discounts</a>
         </div>
-
-        <div class="manager-card">
-          <a href="manage_users.php" class="buy-button">Manage Users</a>
-        </div>
-
+        
       </section>
     </main>
 
