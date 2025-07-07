@@ -74,6 +74,14 @@ $total = $subtotal + $tax;
     <h1>Invoice Preview</h1>
     <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
 
+  <!-- Discount Input Field-->
+    <div class="form-group">
+      <label for="discount_code">Promo Code:</label>
+      <input type="text" name="discount_code" id="discount_code" placeholder="Enter promo code">
+      <button type="button" id="applyDiscount" class="buy-button">Apply</button>
+      <span id="discountStatus" class="status-text"></span>
+    </div>
+
     <!-- Billing -->
     <div class="section">
       <h2>Bill To:</h2>
@@ -192,6 +200,8 @@ $total = $subtotal + $tax;
     </div>
 
     <!-- Hidden inputs for confirm_order.php -->
+    <input type="hidden" name="discount_pct" id="discount_pct" value="0">
+    <input type="hidden" name="discount_amount" id="discount_amount" value="0">
     <input type="hidden" name="subtotal" value="<?= htmlspecialchars($subtotal) ?>">
     <input type="hidden" name="tax" value="<?= htmlspecialchars($tax) ?>">
     <input type="hidden" name="total" value="<?= htmlspecialchars($total) ?>">

@@ -67,8 +67,6 @@ $hardtails = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Hardt
 
     <hr class="cyberpunk-hr">
 
-    <hr class="cyberpunk-hr">
-
             <!-- Footer -->
             <?php include 'templates/footer.php'; ?>
 

@@ -31,6 +31,8 @@ $sphone  = $_POST['sphone'];
 $semail  = $_POST['semail'];
 
 // Pull final calculated amounts from POST (trust preview page)
+$discount_pct = $_POST['discount_pct'] ?? 0;
+$discount_amount = $_POST['discount_amount'] ?? 0;\
 $subtotal = $_POST['subtotal'];
 $tax = $_POST['tax'];
 $total = $_POST['total'];
@@ -147,6 +149,12 @@ unset($_SESSION['cart']);
             <td colspan="3">Subtotal</td>
             <td>$<?= number_format($subtotal, 2) ?></td>
           </tr>
+          <?php if ($discount_pct > 0): ?>
+          <tr class="total-row">
+            <td colspan="3">Discount (<?= htmlspecialchars($discount_pct) ?>%)</td>
+            <td>−$<?= number_format($discount_amount, 2) ?></td>
+          </tr>
+          <?php endif; ?>
           <tr class="total-row">
             <td colspan="3">Sales Tax</td>
             <td>$<?= number_format($tax, 2) ?></td>
