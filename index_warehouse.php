@@ -36,7 +36,7 @@ require 'database.php'; // Good to include if you need it later (optional here)
     </div>
 
     <main>
-      <section class="multiple-product">
+      <section class="warehouse-controls">
         <div class="product-card">
           <a href="warehouse_inventory.php" class="product-card__link">
             <h2>View Inventory / Stock</h2>
