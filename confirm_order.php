@@ -32,7 +32,7 @@ $semail  = $_POST['semail'];
 
 // Pull final calculated amounts from POST (trust preview page)
 $discount_pct = $_POST['discount_pct'] ?? 0;
-$discount_amount = $_POST['discount_amount'] ?? 0;\
+$discount_amount = $_POST['discount_amount'] ?? 0;
 $subtotal = $_POST['subtotal'];
 $tax = $_POST['tax'];
 $total = $_POST['total'];
