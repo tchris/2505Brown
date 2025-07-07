@@ -1,12 +1,21 @@
 <?php
+// Secure session setup
+ini_set('session.cookie_httponly', 1);
+ini_set('session.use_strict_mode', 1);
+ini_set('session.cookie_secure', 1); // Only if your site uses HTTPS
+
 session_start();
-if (!isset($_SESSION['warehouse_logged_in'])) {
+
+// Prevent direct access without login
+if (!isset($_SESSION['warehouse_logged_in']) || $_SESSION['warehouse_logged_in'] !== true) {
     header('Location: warehouse_login.php');
     exit;
 }
+
+// Prevent caching of the warehouse page
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -69,8 +78,4 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
 
     </div> <!-- end .page-wrapper -->
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 5df7ce64e22ccd36112fffa3377e36cd6d15b9b8
