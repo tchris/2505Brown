@@ -63,7 +63,6 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
                 if ($products && $products->num_rows > 0) {
                     while ($row = $products->fetch_assoc()) {
                         echo '<div class="product-card">';
-                        echo '<a href="/2505Chartreuse/storeoneproduct.php?id=' . $row['id'] . '" class="product-card__link">';
                         echo '<h2>' . htmlspecialchars($row['category']) . '</h2>';
                         echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                         echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
