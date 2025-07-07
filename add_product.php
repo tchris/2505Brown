@@ -8,29 +8,42 @@ if (!isset($_SESSION['manager_logged_in'])) {
   exit;
 }
 
-// Initialize variables
+// Initialize message
 $message = "";
 
-// Handle form submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = trim($_POST['name']);
   $price = floatval($_POST['price']);
   $descr = trim($_POST['descr']);
   $category = $_POST['category'];
-  $picture = trim($_POST['picture']);
 
-  if ($name && $price > 0 && $category && $picture) {
-    $stmt = $mysqli->prepare("
-      INSERT INTO Mountain_Bike (category, descr, name, price, picture)
-      VALUES (?, ?, ?, ?, ?)
-    ");
-    $stmt->bind_param("sssds", $category, $descr, $name, $price, $picture);
-    $stmt->execute();
-    $stmt->close();
+  // Handle image upload
+  if (isset($_FILES['picture']) && $_FILES['picture']['error'] === UPLOAD_ERR_OK) {
+    $uploadDir = 'img/';
+    $uploadedName = basename($_FILES['picture']['name']);
+    $targetPath = $uploadDir . $uploadedName;
 
-    $message = "<p style='color: green;'>✅ Product added successfully!</p>";
+    $allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/webp'];
+    if (in_array($_FILES['picture']['type'], $allowedTypes)) {
+      if (move_uploaded_file($_FILES['picture']['tmp_name'], $targetPath)) {
+        // Insert into database
+        $stmt = $mysqli->prepare("
+          INSERT INTO Mountain_Bike (category, descr, name, price, picture)
+          VALUES (?, ?, ?, ?, ?)
+        ");
+        $stmt->bind_param("sssds", $category, $descr, $name, $price, $uploadedName);
+        $stmt->execute();
+        $stmt->close();
+
+        $message = "<p style='color: green;'>✅ Product added successfully with image!</p>";
+      } else {
+        $message = "<p style='color: red;'>⚠️ Failed to move uploaded image.</p>";
+      }
+    } else {
+      $message = "<p style='color: red;'>⚠️ Invalid image format.</p>";
+    }
   } else {
-    $message = "<p style='color: red;'>⚠️ Please fill out all fields correctly.</p>";
+    $message = "<p style='color: red;'>⚠️ Image is required.</p>";
   }
 }
 ?>
@@ -61,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h2 class="section-heading">Add New Product</h2>
       <?= $message ?>
 
-      <form method="post">
+      <form method="post" enctype="multipart/form-data">
         <label>Product Name:</label><br>
         <input type="text" name="name" required><br><br>
 
@@ -79,8 +92,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <option value="Accessories">Accessories</option>
         </select><br><br>
 
-        <label>Picture Filename (e.g., HT-4.png):</label><br>
-        <input type="text" name="picture" required><br><br>
+        <label>Upload Product Image:</label><br>
+        <input type="file" name="picture" accept="image/*" onchange="previewImage(this)" required><br><br>
+
+        <img id="image-preview" src="#" alt="Image Preview" style="display:none; max-width:200px; margin-top:1rem;"><br><br>
 
         <button type="submit" class="confirm-button">Add Product</button>
       </form>
@@ -88,8 +103,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <hr class="cyberpunk-hr">
 
-            <!-- Footer -->
-            <?php include 'templates/footer.php'; ?>
+    <!-- Footer -->
+    <?php include 'templates/footer.php'; ?>
   </div>
+
+  <script>
+    function previewImage(input) {
+      const preview = document.getElementById('image-preview');
+      const file = input.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
