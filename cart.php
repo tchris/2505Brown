@@ -21,10 +21,7 @@ $cart = $_SESSION['cart'] ?? [];
         
     <main class="cart-section">
         <h1 class="section-heading">Your Cart</h1>
-        <h2 class><a href="/2505Chartreuse/index.php">Continue Shopping</a></h2><br>
-
-
-
+        
         <?php if (empty($cart)): ?>
             <p>Your cart is empty.</p>
         <?php else: ?>
@@ -81,6 +78,8 @@ $cart = $_SESSION['cart'] ?? [];
                 </form>
             <?php endif; ?>
         <?php endif; ?>
+
+        <h2 class><a href="/2505Chartreuse/index.php">Continue Shopping</a></h2><br>
     </main>
     <hr class="cyberpunk-hr">
 
