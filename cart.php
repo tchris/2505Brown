@@ -43,25 +43,30 @@ $cart = $_SESSION['cart'] ?? [];
                         $line_total = $bike['price'] * $qty;
                         $total += $line_total;
                     ?>
+
+                    
                         <li class="cart-item">
                             <span class="item-name"><?= htmlspecialchars($bike['name']) ?></span>
-                            <form action="update_cart.php" method="post" class="cart-controls">
-                                <input type="hidden" name="id" value="<?= $id ?>">
+                            <div class="cart-row">
+                                    
+                                <form action="update_cart.php" method="post" class="cart-controls">
+                                    <input type="hidden" name="id" value="<?= $id ?>">
 
-                                <!-- Decrease -->
-                                <button type="submit" name="action" value="decrease">−</button>
+                                    <!-- Decrease -->
+                                    <button type="submit" name="action" value="decrease">−</button>
 
-                                <!-- Quantity Display -->
-                                <span class="qty-display"><?= $qty ?></span>
+                                    <!-- Quantity Display -->
+                                    <span class="qty-display"><?= $qty ?></span>
 
-                                <!-- Increase -->
-                                <button type="submit" name="action" value="increase">+</button>
+                                    <!-- Increase -->
+                                    <button type="submit" name="action" value="increase">+</button>
 
-                                <!-- Remove -->
-                                <button type="submit" name="action" value="remove">Remove</button>
-                            </form>
+                                    <!-- Remove -->
+                                    <button type="submit" name="action" value="remove">Remove</button>
+                                </form>
 
-                            <span class="line-total">$<?= number_format($line_total, 2) ?></span>
+                                <span class="line-total">$<?= number_format($line_total, 2) ?></span>
+                            </div>
                         </li>
 
 
