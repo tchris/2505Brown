@@ -41,7 +41,6 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
 
         <!-- Hero Wrapper -->
     <div class="hero">
-      <img src="img/CP-Bike.png" class="hero__image">
       <h1 class="hero__title">TRON Bike Shop – Warehouse Portal</h1>
       <h2 class="hero__menu">
         <a href="index_warehouse.php">Warehouse Home</a> |
