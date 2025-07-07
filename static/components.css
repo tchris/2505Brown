@@ -46,12 +46,12 @@
     right: 10px;
 
     background: #000000f1;
-    padding: 1rem 1.25rem;
+    padding: .5rem;
     border-radius: 12px;
     border: 1px solid #00ddff;
     box-shadow: 0 0 20px #0000ff;
     text-align: center;
-    max-width: 160px;
+    max-width: 100px;
     z-index: 10; /* optional, ensures it sits above the image */
 }
 
