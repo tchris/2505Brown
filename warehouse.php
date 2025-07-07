@@ -39,6 +39,15 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
 
         <!-- Hero -->
         <div class="hero">
+            <!-- Logout Button -->
+            <div style="position: absolute; top: 20px; right: 20px;">
+                <form action="logout_wh.php" method="post">
+                    <button type="submit" style="padding: 8px 12px; background-color: #ff4444; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        Logout
+                    </button>
+                </form>
+            </div>
+
             <img src="img/CP-Bike.png" class="hero__image">
             <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
             <h2 class="hero__menu"><a href="/2505Chartreuse/hardtail.php">Hardtail</a> | <a href="/2505Chartreuse/fullsuspension.php">Full Suspension</a> | <a href="/2505Chartreuse/accessories.php">Accessories Galore</a></h2>
