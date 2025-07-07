@@ -19,8 +19,10 @@ $cart = $_SESSION['cart'] ?? [];
         <!-- Hero Wrapper -->
         <?php include 'templates/hero.php'; ?>
         
-    <main>
+    <main class="cart-section">
         <h1 class="section-heading">Your Cart</h1>
+
+
 
         <?php if (empty($cart)): ?>
             <p>Your cart is empty.</p>
