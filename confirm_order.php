@@ -163,5 +163,9 @@ unset($_SESSION['cart']);
       <a class="confirm-button" href="index.php">Back to Home</a>
     </div>
   </main>
+  <hr class="cyberpunk-hr">
+
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 </body>
 </html>

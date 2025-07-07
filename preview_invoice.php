@@ -209,5 +209,10 @@ $total = $subtotal + $tax;
   </main>
   </form>
   <script src="static/js/invoice.js"></script>
+
+  <hr class="cyberpunk-hr">
+
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 </body>
 </html>

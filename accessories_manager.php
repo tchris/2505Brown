@@ -66,9 +66,8 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 
     <hr class="cyberpunk-hr">
 
-    <footer>
-      <p>© 2025 Bikes R' Us. All rights reserved.</p>
-    </footer>
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 
   </div>
 </body>

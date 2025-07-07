@@ -74,5 +74,9 @@ $cart = $_SESSION['cart'] ?? [];
             <?php endif; ?>
         <?php endif; ?>
     </main>
+    <hr class="cyberpunk-hr">
+
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 </body>
 </html>

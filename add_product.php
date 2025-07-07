@@ -87,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <hr class="cyberpunk-hr">
-    <footer>
-      <p>© 2025 Bikes R' Us. All rights reserved.</p>
-    </footer>
+
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
   </div>
 </body>
 </html>

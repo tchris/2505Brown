@@ -47,10 +47,8 @@ if (!isset($_SESSION['manager_logged_in'])) {
 
     <hr class="cyberpunk-hr">
 
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 Bikes R' Us. All rights reserved.</p>
-    </footer>
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 
   </div>
 </body>
