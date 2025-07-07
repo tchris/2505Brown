@@ -31,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="static/base.css">
 </head>
 <body>
+    <!-- Hero Wrapper -->
+        <?php include 'templates/hero.php'; ?>
+
     <div class="login-wrapper">
         <h1>Warehouse Login</h1>
         <?php if ($error): ?>
@@ -46,5 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Login</button>
         </form>
     </div>
+    <hr class="cyberpunk-hr">
+
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
+        
 </body>
 </html>
