@@ -68,7 +68,7 @@ $orders = $stmt->get_result();
     <h1 class="hero__title">TRON Bike Shop – Warehouse Orders</h1>
     <h2 class="hero__menu">
       <a href="index_warehouse.php">Warehouse Home</a> |
-      <a href="warehouse.php">View Inventory</a> |
+      <a href="warehouse_inventory.php">View Inventory</a> |
       <a href="logout.php">Logout</a>
     </h2>
   </div>
