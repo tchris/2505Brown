@@ -408,6 +408,30 @@ input {
     }
 }
 
+/* Footer Section - footer.php*/
+
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #00ddff;
+}
+
+.footer .hero__menu a {
+  color: #00ddff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.footer .copyright {
+  font-size: 0.75rem;
+  color: #00ddff;
+  font-weight: normal;
+  margin-top: 0.5rem;
+  opacity: 0.75;
+}
+
 /* Blocks Mobile Code in Hero unless screen is 768px or smaller*/
 .hero__menu.mobile-menu {
   display: none;
@@ -488,5 +512,22 @@ input {
     border-radius: 10px;
     display: block;
     margin: 0 auto 10px auto;
+  }
+}
+
+.footer .copyright.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .footer .copyright {
+    display: none;
+  }
+
+  .footer .copyright.mobile-only {
+    display: block;
+    font-size: 0.65rem;
+    margin-top: 0.25rem;
+    opacity: 0.7;
   }
 }
