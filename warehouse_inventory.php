@@ -39,16 +39,15 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
 
     <div class="page-wrapper">
 
-        <!-- Hero -->
-        <div class="hero">
-            <!-- Logout Button -->
-            <div style="position: absolute; top: 20px; right: 20px;">
-                <form action="logout_warehouse.php" method="post">
-                    <button type="submit" style="padding: 8px 12px; background-color: #ff4444; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                        Logout
-                    </button>
-                </form>
-            </div>
+        <!-- Hero Wrapper -->
+    <div class="hero">
+      <img src="img/CP-Bike.png" class="hero__image">
+      <h1 class="hero__title">TRON Bike Shop – Warehouse Portal</h1>
+      <h2 class="hero__menu">
+        <a href="index_warehouse.php">Warehouse Home</a> |
+        <a href="logout_warehouse.php">Logout</a>
+      </h2>
+    </div>
 
             <img src="img/CP-Bike.png" class="hero__image">
             <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop</a></h1>
