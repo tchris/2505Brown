@@ -1,87 +1,89 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require 'database.php';
 
-date_default_timezone_set("America/Denver");
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo "<p>Invalid request.</p>";
-    exit;
-}
-
-// Pull cart from session
+// Get cart from session
 $cart = $_SESSION['cart'] ?? [];
-if (empty($cart)) {
-    echo "<p>Cart is empty.</p>";
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
+    echo "<p>Invalid access or empty cart.</p>";
     exit;
 }
 
-// Customer info
-$cname = $_POST['cname'];
-$caddy = $_POST['caddy'];
-$ccity = $_POST['ccity'];
-$cstate = $_POST['cstate'];
-$czip = $_POST['czip'];
-$cphone = $_POST['cphone'];
-$cemail = $_POST['cemail'];
+// Capture form data
+$cname   = $_POST['cname'];
+$caddy   = $_POST['caddy'];
+$ccity   = $_POST['ccity'];
+$cstate  = $_POST['cstate'];
+$czip    = $_POST['czip'];
+$cphone  = $_POST['cphone'];
+$cemail  = $_POST['cemail'];
+$sname   = $_POST['sname'];
+$saddy   = $_POST['saddy'];
+$scity   = $_POST['scity'];
+$sstate  = $_POST['sstate'];
+$szip    = $_POST['szip'];
+$sphone  = $_POST['sphone'];
+$semail  = $_POST['semail'];
 
-$sname = $_POST['sname'];
-$saddy = $_POST['saddy'];
-$scity = $_POST['scity'];
-$sstate = $_POST['sstate'];
-$szip = $_POST['szip'];
-$sphone = $_POST['sphone'];
-$semail = $_POST['semail'];
+// Pull final calculated amounts from POST (trust preview page)
+$subtotal = $_POST['subtotal'];
+$tax = $_POST['tax'];
+$total = $_POST['total'];
 
-// Totals and promo data
-$subtotal        = floatval($_POST['subtotal']);
-$discount_code   = trim($_POST['discount_code']);
-$discount_pct    = floatval($_POST['discount_pct']);
-$discount_amount = floatval($_POST['discount_amount']);
-$tax             = floatval($_POST['tax']);
-$total           = floatval($_POST['total']);
-
-// Build order data
-$order_items = [];
+// Pull cart data for line items
 $bike_ids = implode(',', array_map('intval', array_keys($cart)));
 $result = $mysqli->query("SELECT * FROM Mountain_Bike WHERE id IN ($bike_ids)");
 
+$items = [];
 while ($bike = $result->fetch_assoc()) {
     $id = $bike['id'];
     $qty = $cart[$id];
     $price = $bike['price'];
 
-    $order_items[] = [
+    $items[] = [
         'bike_id' => $id,
         'qty' => $qty,
-        'price_each' => $price
+        'price_each' => $price,
+        'name' => $bike['name']
     ];
 }
 
-// Save to database
+// Insert invoice with tax
 $stmt = $mysqli->prepare("
-  INSERT INTO invoice (cname, caddy, ccity, cstate, czip, cphone, cemail,
-                       sname, saddy, scity, sstate, szip, sphone, semail,
-                       subtotal, discount_code, discount_pct, discount_amount, tax, total, created_at)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+    INSERT INTO invoice 
+    (inv_date, ship_date, cname, caddy, ccity, cstate, czip, cphone, cemail, 
+     sname, saddy, scity, sstate, szip, sphone, semail, subtotal, tax, total) 
+    VALUES 
+    (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
 
-$stmt->bind_param("sssssssssssssssssdd", 
-  $cname, $caddy, $ccity, $cstate, $czip, $cphone, $cemail,
-  $sname, $saddy, $scity, $sstate, $szip, $sphone, $semail,
-  $subtotal, $discount_code, $discount_pct, $discount_amount, $tax, $total
+$stmt->bind_param("ssssssssssssssddd",
+    $cname, $caddy, $ccity, $cstate, $czip, $cphone, $cemail,
+    $sname, $saddy, $scity, $sstate, $szip, $sphone, $semail,
+    $subtotal, $tax, $total
 );
-$stmt->execute();
-$invoice_id = $stmt->insert_id;
-$stmt->close();
 
-// Save line items
-$line_stmt = $mysqli->prepare("INSERT INTO invoice_products (invoice_id, product_id, quantity, price_each) VALUES (?, ?, ?, ?)");
-foreach ($order_items as $item) {
-    $line_stmt->bind_param("iiid", $invoice_id, $item['bike_id'], $item['qty'], $item['price_each']);
-    $line_stmt->execute();
+$stmt->execute();
+$inv_id = $mysqli->insert_id;
+
+// Insert line items
+$stmt_items = $mysqli->prepare("INSERT INTO invoice_products (inv_id, bike_id, qty) VALUES (?, ?, ?)");
+foreach ($items as $item) {
+    $stmt_items->bind_param("iii", $inv_id, $item['bike_id'], $item['qty']);
+    $stmt_items->execute();
 }
-$line_stmt->close();
+
+// Generate PDF and send email
+require 'generate_invoice_pdf.php';
+require 'send_invoice_emails.php';
+
+$pdfPath = generateInvoicePDF($inv_id, $cname);
+sendInvoiceEmails($pdfPath, $cemail, $cname, $inv_id);
 
 // Clear cart
 unset($_SESSION['cart']);
@@ -94,37 +96,76 @@ unset($_SESSION['cart']);
   <title>Order Confirmation – TRON Cycles</title>
   <link rel="stylesheet" href="static/base.css">
   <link rel="stylesheet" href="static/components.css">
+  <link rel="stylesheet" href="static/layout.css">
 </head>
 <body>
-  <div class="page-wrapper">
-    <?php include 'templates/hero.php'; ?>
+  <!-- Hero Wrapper -->
+        <?php include 'templates/hero.php'; ?>
 
-    <main class="invoice-box">
-      <h1>✅ Order Confirmed</h1>
-      <p>Thank you, <?= htmlspecialchars($cname) ?>! Your order has been successfully submitted.</p>
-      <p><strong>Invoice #<?= $invoice_id ?></strong></p>
+  <main class="invoice-box">
+    <h1>Thank You for Your Order!</h1>
+    <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
+    <p><strong>Invoice #:</strong> <?= $inv_id ?></p>
 
+    <div class="section">
+      <h2>Bill To:</h2>
+      <p><?= htmlspecialchars($cname) ?><br>
+         <?= htmlspecialchars($caddy) ?><br>
+         <?= htmlspecialchars($ccity) ?>, <?= htmlspecialchars($cstate) ?> <?= htmlspecialchars($czip) ?><br>
+         <?= htmlspecialchars($cemail) ?> | <?= htmlspecialchars($cphone) ?></p>
+    </div>
+
+    <div class="section">
+      <h2>Ship To:</h2>
+      <p><?= htmlspecialchars($sname) ?><br>
+         <?= htmlspecialchars($saddy) ?><br>
+         <?= htmlspecialchars($scity) ?>, <?= htmlspecialchars($sstate) ?> <?= htmlspecialchars($szip) ?><br>
+         <?= htmlspecialchars($semail) ?> | <?= htmlspecialchars($sphone) ?></p>
+    </div>
+
+    <div class="section">
       <h2>Order Summary</h2>
-      <ul>
-        <?php foreach ($order_items as $item): ?>
-          <li><?= $item['qty'] ?> × Product #<?= $item['bike_id'] ?> @ $<?= number_format($item['price_each'], 2) ?> each</li>
-        <?php endforeach; ?>
-      </ul>
-      <hr>
-      <p><strong>Subtotal:</strong> $<?= number_format($subtotal, 2) ?></p>
-      <?php if ($discount_amount > 0): ?>
-        <p><strong>Discount (<?= htmlspecialchars($discount_code) ?> – <?= $discount_pct ?>%):</strong> −$<?= number_format($discount_amount, 2) ?></p>
-      <?php endif; ?>
-      <p><strong>Tax:</strong> $<?= number_format($tax, 2) ?></p>
-      <p><strong>Total:</strong> $<?= number_format($total, 2) ?></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Qty</th>
+            <th>Description</th>
+            <th>Each</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($items as $item): ?>
+          <tr>
+            <td><?= $item['qty'] ?></td>
+            <td><?= htmlspecialchars($item['name']) ?></td>
+            <td>$<?= number_format($item['price_each'], 2) ?></td>
+            <td>$<?= number_format($item['qty'] * $item['price_each'], 2) ?></td>
+          </tr>
+          <?php endforeach; ?>
+          <tr class="total-row">
+            <td colspan="3">Subtotal</td>
+            <td>$<?= number_format($subtotal, 2) ?></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3">Sales Tax</td>
+            <td>$<?= number_format($tax, 2) ?></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3">Total</td>
+            <td>$<?= number_format($total, 2) ?></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <div class="button-container">
-        <a href="index.php" class="buy-button">Return to Home</a>
-      </div>
-    </main>
+    <div class="button-container">
+      <a class="confirm-button" href="index.php">Back to Home</a>
+    </div>
+  </main>
+  <hr class="cyberpunk-hr">
 
-    <hr class="cyberpunk-hr">
-    <?php include 'templates/footer.php'; ?>
-  </div>
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 </body>
 </html>
