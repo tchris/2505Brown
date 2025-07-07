@@ -43,7 +43,7 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
         <div class="hero">
             <!-- Logout Button -->
             <div style="position: absolute; top: 20px; right: 20px;">
-                <form action="logout_wh.php" method="post">
+                <form action="logout_warehouse.php" method="post">
                     <button type="submit" style="padding: 8px 12px; background-color: #ff4444; color: white; border: none; border-radius: 4px; cursor: pointer;">
                         Logout
                     </button>
@@ -62,19 +62,19 @@ $products = $mysqli->query("SELECT * FROM Mountain_Bike ORDER BY category, name"
                 <?php
                 if ($products && $products->num_rows > 0) {
                     while ($row = $products->fetch_assoc()) {
-                        echo '<div class="product-card">';
-                        echo '<h2>' . htmlspecialchars($row['category']) . '</h2>';
-                        echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
-                        echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
-                        echo '<p>$' . number_format($row['price'], 2) . '</p>';
-                        echo '</a>';
-                        echo '<p>Stock: ' . intval($row['stock_qty']) . '</p>';
-                        echo '<form action="update_stock.php" method="post" style="display:inline-block; margin-top: 5px;">';
-                        echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
-                        echo '<button type="submit" name="change" value="-1" style="padding:5px 10px; margin-right:5px;">-1</button>';
-                        echo '<button type="submit" name="change" value="1" style="padding:5px 10px;">+1</button>';
-                        echo '</form>';
-                        echo '</div>';
+                       echo '<div class="product-card">';
+                       echo '<h2>' . htmlspecialchars($row['category']) . '</h2>';
+                       echo '<img src="img/' . htmlspecialchars($row['picture']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                       echo '<p><strong>' . htmlspecialchars($row['name']) . '</strong></p>';
+                       echo '<p>$' . number_format($row['price'], 2) . '</p>';
+                       echo '<p>Stock: ' . intval($row['stock_qty']) . '</p>';
+                       echo '<form action="update_stock.php" method="post" style="margin-top: 5px;">';
+                       echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
+                       echo '<button type="submit" name="change" value="-1">-1</button>';
+                       echo '<button type="submit" name="change" value="1">+1</button>';
+                       echo '</form>';
+                       echo '</div>';
+
                     }
                 } else {
                     echo '<p>No bikes found in inventory.</p>';
