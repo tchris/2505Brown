@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($allowed_users[$username]) && $allowed_users[$username] === $password) {
         $_SESSION['warehouse_logged_in'] = true;
-        header('Location: warehouse.php'); // ✅ Correct warehouse page redirect
+        header('Location: index_warehouse.php'); // ✅ Correct warehouse page redirect
         exit;
     } else {
         $error = 'Invalid username or password.';
