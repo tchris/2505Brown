@@ -26,9 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Warehouse Login - TRON Cycles</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TRON Cycles – Bike Shop of the Future</title>
     <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/layout.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Hero Wrapper -->
