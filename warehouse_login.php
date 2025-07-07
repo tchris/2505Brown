@@ -3,7 +3,7 @@ session_start();
 
 // You can hardcode allowed users or check against a database
 $allowed_users = [
-    'warehouse0' => 'password123',
+    'warehouse1' => 'password123',
     'warehouse2' => 'securepass'
 ];
 
