@@ -93,6 +93,10 @@ function generateInvoicePDF($order_id, $customer_name) {
                     <td>$<?= number_format($invoice['subtotal'], 2) ?></td>
                 </tr>
                 <tr class="totals">
+                    <td colspan="3">Sales Tax</td>
+                    <td>$<?= number_format($invoice['tax'], 2) ?></td>
+                </tr>
+                <tr class="totals">
                     <td colspan="3">Total</td>
                     <td>$<?= number_format($invoice['total'], 2) ?></td>
                 </tr>
