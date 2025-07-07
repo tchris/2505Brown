@@ -29,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Hero Wrapper -->
+        <?php include 'templates/hero.php'; ?>
+        
     <title>Manager Login</title>
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/layout.css">
