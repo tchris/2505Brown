@@ -239,6 +239,7 @@
     font-weight: bold;
     color: #00ddff;
     font-size: 1.1rem;
+    gap: 1rem;
 }
 
 .cart-total {
