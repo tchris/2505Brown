@@ -49,11 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Handle delete
   if (isset($_POST['delete'])) {
+    $imagePath = __DIR__ . '/img/' . $product['picture'];
+    if (file_exists($imagePath)) {
+      unlink($imagePath);
+    }
+
     $delete_stmt = $mysqli->prepare("DELETE FROM Mountain_Bike WHERE id = ?");
     $delete_stmt->bind_param("i", $id);
     $delete_stmt->execute();
     $delete_stmt->close();
-    echo "<p style='color: red;'>Product deleted!</p>";
+
+    echo "<p style='color: red;'>Product and image deleted!</p>";
     echo "<a href='index_manager.php'>Return to Manager Dashboard</a>";
     exit;
   }
