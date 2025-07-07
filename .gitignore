@@ -12,3 +12,4 @@ tmp/
 lib/fonts/*.afm.json
 lib/fonts/*.ufm.json
 lib/fonts/log.htm
+img/
