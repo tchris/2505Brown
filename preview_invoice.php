@@ -207,6 +207,6 @@ $total = $subtotal + $tax;
     </div>
   </main>
   </form>
-  <script src="/2505Chartreuse/static/js/invoice.js"></script>
+  <script src="static/js/invoice.js"></script>
 </body>
 </html>
