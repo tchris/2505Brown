@@ -86,37 +86,38 @@ $total = $subtotal + $tax;
       <h2>Bill To:</h2>
       <div class="form-group">
         <label>Name</label>
-        <input name="cname" required value="<?= htmlspecialchars($cname) ?>">
+        <input name="cname" id="cname" required value="<?= htmlspecialchars($cname) ?>">
       </div>
       <div class="form-group">
         <label>Address</label>
-        <input name="caddy" required value="<?= htmlspecialchars($caddy) ?>">
+        <input name="caddy" id="caddy" required value="<?= htmlspecialchars($caddy) ?>">
       </div>
       <div class="form-row">
         <div class="form-group city">
           <label>City</label>
-          <input name="ccity" required value="<?= htmlspecialchars($ccity) ?>">
+          <input name="ccity" id="ccity" required value="<?= htmlspecialchars($ccity) ?>">
         </div>
         <div class="form-group state">
           <label>State</label>
-          <input name="cstate" maxlength="2" required value="<?= htmlspecialchars($cstate) ?>">
+          <input name="cstate" id="cstate" maxlength="2" required value="<?= htmlspecialchars($cstate) ?>">
         </div>
         <div class="form-group zip">
           <label>Zip</label>
-          <input name="czip" maxlength="10" required value="<?= htmlspecialchars($czip) ?>">
+          <input name="czip" id="czip" maxlength="10" required value="<?= htmlspecialchars($czip) ?>">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group cphone">
           <label>Phone</label>
-          <input name="cphone" required value="<?= htmlspecialchars($cphone) ?>">
+          <input name="cphone" id="cphone" required value="<?= htmlspecialchars($cphone) ?>">
         </div>
         <div class="form-group cemail">
           <label>Email</label>
-          <input name="cemail" required value="<?= htmlspecialchars($cemail) ?>">
+          <input name="cemail" id="cemail" required value="<?= htmlspecialchars($cemail) ?>">
         </div>
       </div>
     </div>
+
 
     <div class="copyBilling">
       <input type="checkbox" id="copyBilling">
@@ -128,34 +129,34 @@ $total = $subtotal + $tax;
       <h2>Ship To:</h2>
       <div class="form-group">
         <label>Name</label>
-        <input name="sname" required value="<?= htmlspecialchars($sname) ?>">
+        <input name="sname" id="sname" required value="<?= htmlspecialchars($sname) ?>">
       </div>
       <div class="form-group">
         <label>Address</label>
-        <input name="saddy" required value="<?= htmlspecialchars($saddy) ?>">
+        <input name="saddy" id="saddy" required value="<?= htmlspecialchars($saddy) ?>">
       </div>
       <div class="form-row">
         <div class="form-group city">
           <label>City</label>
-          <input name="scity" required value="<?= htmlspecialchars($scity) ?>">
+          <input name="scity" id="scity" required value="<?= htmlspecialchars($scity) ?>">
         </div>
         <div class="form-group state">
           <label>State</label>
-          <input name="sstate" maxlength="2" required value="<?= htmlspecialchars($sstate) ?>">
+          <input name="sstate" id="sstate" maxlength="2" required value="<?= htmlspecialchars($sstate) ?>">
         </div>
         <div class="form-group zip">
           <label>Zip</label>
-          <input name="szip" maxlength="10" required value="<?= htmlspecialchars($szip) ?>">
+          <input name="szip" id="szip" maxlength="10" required value="<?= htmlspecialchars($szip) ?>">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group cphone">
           <label>Phone</label>
-          <input name="sphone" required value="<?= htmlspecialchars($sphone) ?>">
+          <input name="sphone" id="sphone" required value="<?= htmlspecialchars($sphone) ?>">
         </div>
         <div class="form-group cemail">
           <label>Email</label>
-          <input name="semail" required value="<?= htmlspecialchars($semail) ?>">
+          <input name="semail" id="semail" required value="<?= htmlspecialchars($semail) ?>">
         </div>
       </div>
     </div>
