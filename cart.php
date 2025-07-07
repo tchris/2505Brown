@@ -21,6 +21,7 @@ $cart = $_SESSION['cart'] ?? [];
         
     <main class="cart-section">
         <h1 class="section-heading">Your Cart</h1>
+        <h2 class><a href="/2505Chartreuse/index.php">Continue Shopping</a></h2><br>
 
 
 
