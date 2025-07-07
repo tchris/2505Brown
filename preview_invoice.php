@@ -50,7 +50,13 @@ while ($bike = $result->fetch_assoc()) {
     $subtotal += $line_total;
 }
 
-$total = $subtotal;
+// Calculate sales tax (8%)
+$tax_rate = 0.08;
+$tax = $subtotal * $tax_rate;
+
+// Final total with tax
+$total = $subtotal + $tax;
+
 
 ?>
 
@@ -194,13 +200,18 @@ $total = $subtotal;
                     </tr>
                     <?php endforeach; ?>
                     <tr class="total-row">
-                        <td colspan="3">Subtotal</td>
-                        <td>$<?= number_format($subtotal, 2) ?></td>
-                    </tr>
-                    <tr class="total-row">
-                        <td colspan="3">Total</td>
-                        <td>$<?= number_format($total, 2) ?></td>
-                    </tr>
+  <td colspan="3">Subtotal</td>
+  <td>$<?= number_format($subtotal, 2) ?></td>
+</tr>
+<tr class="total-row">
+  <td colspan="3">Sales Tax (8%)</td>
+  <td>$<?= number_format($tax, 2) ?></td>
+</tr>
+<tr class="total-row">
+  <td colspan="3">Total</td>
+  <td>$<?= number_format($total, 2) ?></td>
+</tr>
+
                 </tbody>
             </table>
         </div>
