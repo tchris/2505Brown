@@ -285,6 +285,11 @@
     text-align: center;
 }
 
+.button-wrapper {
+    text-align: center;
+}
+
+
 /* Input Form Styling */
 
 .checkout-form {
