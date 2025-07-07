@@ -467,7 +467,7 @@ input {
     background: linear-gradient(to right, #00ddff, #0000ff, #00ddff);
     box-shadow: 0 0 20px #00ddff, 0 0 40px #0000ff;
     margin: 3rem 1rem;
-    border-radius: 2px;
+    border-radius: 1rem;
     animation: pulse-glow 1.5s infinite alternate;
 }
 
@@ -485,7 +485,6 @@ input {
 .footer {
   text-align: center;
   margin-top: 1rem;
-  padding-top: 2rem;
 }
 
 .footer .hero__menu a {
