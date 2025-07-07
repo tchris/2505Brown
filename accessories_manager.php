@@ -23,11 +23,20 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 <body>
   <div class="page-wrapper">
 
+    <!-- Hero Wrapper -->
     <div class="hero">
-      <img src="img/CP-Bike.png" class="hero__image">
-      <h1 class="hero__title"><a href="https://alittlespace.org/2505Chartreuse/">TRON Bike Shop – Manager Portal</a></h1>
-      <h2 class="hero__menu"><a href="/2505Chartreuse/hardtail_manager.php">Hardtail</a> | <a href="/2505Chartreuse/fullsuspension_manager.php">Full Suspension</a> | <a href="/2505Chartreuse/accessories_manager.php">Accessories</a></h2>
-    </div>
+  <img src="img/CP-Bike.png" class="hero__image">
+  <h1 class="hero__title">TRON Bike Shop – Manager Portal</h1>
+  <h2 class="hero__menu">
+    <a href="manager.php">Manager Home</a> | 
+    <a href="index_manager.php">Manage Inventory</a> | 
+    <a href="hardtail_manager.php">Hardtail</a> | 
+    <a href="fullsuspension_manager.php">Full Suspension</a> | 
+    <a href="accessories_manager.php">Accessories</a> | 
+    <a href="logout.php">Logout</a>
+  </h2>
+</div>
+
 
     <main>
       <h2 class="section-heading">Manage Accessories</h2>

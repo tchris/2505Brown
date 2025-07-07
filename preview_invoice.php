@@ -4,6 +4,7 @@ require 'database.php';
 
 date_default_timezone_set("America/Denver");
 
+// Pull cart from session
 $cart = $_SESSION['cart'] ?? [];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
@@ -11,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($cart)) {
     exit;
 }
 
-// Grab checkout form data
+// Grab checkout form data from POST
 $cname   = $_POST['cname'];
 $caddy   = $_POST['caddy'];
 $ccity   = $_POST['ccity'];
@@ -27,7 +28,7 @@ $szip    = $_POST['szip'];
 $sphone  = $_POST['sphone'];
 $semail  = $_POST['semail'];
 
-// Pull cart data
+// Pull items
 $bike_ids = implode(',', array_map('intval', array_keys($cart)));
 $result = $mysqli->query("SELECT * FROM Mountain_Bike WHERE id IN ($bike_ids)");
 
@@ -50,164 +51,161 @@ while ($bike = $result->fetch_assoc()) {
     $subtotal += $line_total;
 }
 
-$total = $subtotal;
+// Calculate tax + total
+$tax_rate = 0.08; // Example 8%
+$tax = $subtotal * $tax_rate;
+$total = $subtotal + $tax;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Invoice Preview – TRON Cycles</title>
-    <link rel="stylesheet" href="static/base.css">
-    <link rel="stylesheet" href="static/components.css">
-    <link rel="stylesheet" href="static/layout.css">
+  <meta charset="UTF-8">
+  <title>Invoice Preview – TRON Cycles</title>
+  <link rel="stylesheet" href="static/base.css">
+  <link rel="stylesheet" href="static/components.css">
+  <link rel="stylesheet" href="static/layout.css">
 </head>
-
-<script src="static/js/invoice.js"></script>
-
 <body>
-    <div class="hero">
-        <img src="img/CP-Bike.png" class="hero__image">
-        <h1 class="hero__title"><a href="/2505Chartreuse/">TRON Bike Shop</a></h1>
-        <h2 class="hero__menu">
-            <a href="/2505Chartreuse/hardtail.php">Hardtail</a> |
-            <a href="/2505Chartreuse/fullsuspension.php">Full Suspension</a> |
-            <a href="/2505Chartreuse/accessories.php">Accessories Galore</a>
-        </h2>
+  <div class="hero">
+    <img src="img/CP-Bike.png" class="hero__image">
+    <h1 class="hero__title"><a href="/2505Chartreuse/">TRON Bike Shop</a></h1>
+    <h2 class="hero__menu">
+      <a href="/2505Chartreuse/hardtail.php">Hardtail</a> |
+      <a href="/2505Chartreuse/fullsuspension.php">Full Suspension</a> |
+      <a href="/2505Chartreuse/accessories.php">Accessories Galore</a>
+    </h2>
+  </div>
+
+  <form action="confirm_order.php" method="post">
+  <main class="invoice-box">
+    <h1>Invoice Preview</h1>
+    <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
+
+    <!-- Billing -->
+    <div class="section">
+      <h2>Bill To:</h2>
+      <div class="form-group">
+        <label>Name</label>
+        <input name="cname" required value="<?= htmlspecialchars($cname) ?>">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input name="caddy" required value="<?= htmlspecialchars($caddy) ?>">
+      </div>
+      <div class="form-row">
+        <div class="form-group city">
+          <label>City</label>
+          <input name="ccity" required value="<?= htmlspecialchars($ccity) ?>">
+        </div>
+        <div class="form-group state">
+          <label>State</label>
+          <input name="cstate" maxlength="2" required value="<?= htmlspecialchars($cstate) ?>">
+        </div>
+        <div class="form-group zip">
+          <label>Zip</label>
+          <input name="czip" maxlength="10" required value="<?= htmlspecialchars($czip) ?>">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group cphone">
+          <label>Phone</label>
+          <input name="cphone" required value="<?= htmlspecialchars($cphone) ?>">
+        </div>
+        <div class="form-group cemail">
+          <label>Email</label>
+          <input name="cemail" required value="<?= htmlspecialchars($cemail) ?>">
+        </div>
+      </div>
     </div>
 
-    <form action="confirm_order.php" method="post">
-    <main class="invoice-box">
+    <div class="copyBilling">
+      <input type="checkbox" id="copyBilling">
+      <label for="copyBilling">SHIPPING SAME AS BILLING</label>
+    </div>
 
-        <h1>Invoice Preview</h1>
-        <p><strong>Date:</strong> <?= date("Y-m-d") ?></p>
-
-        <div class="section">
-            <h2>Bill To:</h2>
-            <div class="form-group">
-                <label for="cname">Name</label>
-                <input id="cname" name="cname" required value="<?= htmlspecialchars($cname) ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="caddy">Address</label>
-                <input id="caddy" name="caddy" required value="<?= htmlspecialchars($caddy) ?>">
-            </div>
-
-            <div class="form-row">
-                <div class="form-group city">
-                    <label for="ccity">City</label>
-                    <input id="ccity" name="ccity" required value="<?= htmlspecialchars($ccity) ?>">
-                </div>
-
-                <div class="form-group state">
-                    <label for="cstate">State</label>
-                    <input id="cstate" name="cstate" maxlength="2" pattern="[A-Za-z]{2}" required value="<?= htmlspecialchars($cstate) ?>">
-                </div>
-
-                <div class="form-group zip">
-                    <label for="czip">Zip</label>
-                    <input id="czip" name="czip" maxlength="10" required value="<?= htmlspecialchars($czip) ?>">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group cphone">
-                    <label for="cphone">Phone</label>
-                    <input id="cphone" name="cphone" required value="<?= htmlspecialchars($cphone) ?>">
-                </div>
-
-                <div class="form-group cemail">
-                    <label for="cemail">Email</label>
-                    <input id="cemail" name="cemail" required value="<?= htmlspecialchars($cemail) ?>">
-                </div>
-            </div>
+    <!-- Shipping -->
+    <div class="section">
+      <h2>Ship To:</h2>
+      <div class="form-group">
+        <label>Name</label>
+        <input name="sname" required value="<?= htmlspecialchars($sname) ?>">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input name="saddy" required value="<?= htmlspecialchars($saddy) ?>">
+      </div>
+      <div class="form-row">
+        <div class="form-group city">
+          <label>City</label>
+          <input name="scity" required value="<?= htmlspecialchars($scity) ?>">
         </div>
-
-        <div class="copyBilling">
-            <input type="checkbox" id="copyBilling">
-            <label for="copyBilling">SHIPPING SAME AS BILLING</label>
+        <div class="form-group state">
+          <label>State</label>
+          <input name="sstate" maxlength="2" required value="<?= htmlspecialchars($sstate) ?>">
         </div>
-
-
-        <div class="section">
-            <h2>Ship To:</h2>
-            <div class="form-group">
-                <label for="sname">Name</label>
-                <input id="sname" name="sname" required value="<?= htmlspecialchars($sname) ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="saddy">Address</label>
-                <input id="saddy" name="saddy" required value="<?= htmlspecialchars($saddy) ?>">
-            </div>
-
-            <div class="form-row">
-                <div class="form-group city">
-                    <label for="scity">City</label>
-                    <input id="scity" name="scity" required value="<?= htmlspecialchars($scity) ?>">
-                </div>
-
-                <div class="form-group state">
-                    <label for="sstate">State</label>
-                    <input id="sstate" name="sstate" maxlength="2" pattern="[A-Za-z]{2}" required value="<?= htmlspecialchars($sstate) ?>">
-                </div>
-
-                <div class="form-group zip">
-                    <label for="szip">Zip</label>
-                    <input id="szip" name="szip" maxlength="10" required value="<?= htmlspecialchars($szip) ?>">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group cphone">
-                    <label for="sphone">Phone</label>
-                    <input id="sphone" name="sphone" required value="<?= htmlspecialchars($sphone) ?>">
-                </div>
-
-                <div class="form-group cemail">
-                    <label for="semail">Email</label>
-                    <input id="semail" name="semail" required value="<?= htmlspecialchars($semail) ?>">
-                </div>
-            </div>
+        <div class="form-group zip">
+          <label>Zip</label>
+          <input name="szip" maxlength="10" required value="<?= htmlspecialchars($szip) ?>">
         </div>
-
-        <div class="section">
-            <h2>Order Summary</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Qty</th>
-                        <th>Description</th>
-                        <th>Each</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($items as $item): ?>
-                    <tr>
-                        <td><?= $item['qty'] ?></td>
-                        <td><?= htmlspecialchars($item['name']) ?></td>
-                        <td>$<?= number_format($item['price_each'], 2) ?></td>
-                        <td>$<?= number_format($item['qty'] * $item['price_each'], 2) ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                    <tr class="total-row">
-                        <td colspan="3">Subtotal</td>
-                        <td>$<?= number_format($subtotal, 2) ?></td>
-                    </tr>
-                    <tr class="total-row">
-                        <td colspan="3">Total</td>
-                        <td>$<?= number_format($total, 2) ?></td>
-                    </tr>
-                </tbody>
-            </table>
+      </div>
+      <div class="form-row">
+        <div class="form-group cphone">
+          <label>Phone</label>
+          <input name="sphone" required value="<?= htmlspecialchars($sphone) ?>">
         </div>
-
-        <div class="button-container">
-            <button type="submit" class="confirm-button">SUBMIT ORDER</button>
+        <div class="form-group cemail">
+          <label>Email</label>
+          <input name="semail" required value="<?= htmlspecialchars($semail) ?>">
         </div>
+      </div>
+    </div>
 
-    </main>
-    </form>
+    <!-- Order Summary -->
+    <div class="section">
+      <h2>Order Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Qty</th>
+            <th>Description</th>
+            <th>Each</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($items as $item): ?>
+          <tr>
+            <td><?= $item['qty'] ?></td>
+            <td><?= htmlspecialchars($item['name']) ?></td>
+            <td>$<?= number_format($item['price_each'], 2) ?></td>
+            <td>$<?= number_format($item['qty'] * $item['price_each'], 2) ?></td>
+          </tr>
+          <?php endforeach; ?>
+          <tr class="total-row">
+            <td colspan="3">Subtotal</td>
+            <td>$<?= number_format($subtotal, 2) ?></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3">Sales Tax (8%)</td>
+            <td>$<?= number_format($tax, 2) ?></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3">Total</td>
+            <td>$<?= number_format($total, 2) ?></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Hidden inputs for confirm_order.php -->
+    <input type="hidden" name="subtotal" value="<?= htmlspecialchars($subtotal) ?>">
+    <input type="hidden" name="tax" value="<?= htmlspecialchars($tax) ?>">
+    <input type="hidden" name="total" value="<?= htmlspecialchars($total) ?>">
+
+    <div class="button-container">
+      <button type="submit" class="confirm-button">SUBMIT ORDER</button>
+    </div>
+  </main>
+  </form>
 </body>
 </html>

@@ -24,8 +24,8 @@ if (!isset($_SESSION['manager_logged_in'])) {
     <div class="hero">
       <img src="img/CP-Bike.png" class="hero__image">
       <h1 class="hero__title">TRON Bike Shop – Manager Portal</h1>
-      <h2 class="hero__menu">
-        <a href="index.php">Home</a> | <a href="logout.php">Logout</a>
+      <h2 class="hero__menu">   
+        <a href="logout.php">Logout</a>
       </h2>
     </div>
 
@@ -35,21 +35,13 @@ if (!isset($_SESSION['manager_logged_in'])) {
         <h2 class="section-title">Management Actions</h2>
         
         <div class="manager-card">
-          <a href="edit_inventory.php" class="buy-button">Edit Inventory</a>
-        </div>
-
-        <div class="manager-card">
-          <a href="view_reports.php" class="buy-button">View Sales Reports</a>
+          <a href="index_manager.php" class="buy-button">Edit Inventory</a>
         </div>
 
         <div class="manager-card">
           <a href="manage_discounts.php" class="buy-button">Manage Discounts</a>
         </div>
-
-        <div class="manager-card">
-          <a href="manage_users.php" class="buy-button">Manage Users</a>
-        </div>
-
+        
       </section>
     </main>
 
