@@ -10,7 +10,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TRON Cycles – Bike Shop of the Future</title>
+    <title>TRON Cycles – Cycles Shop of the Future</title>
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/layout.css">
     <link rel="stylesheet" href="static/components.css">
