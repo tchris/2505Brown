@@ -31,7 +31,7 @@ $accessories = $mysqli->query("SELECT * FROM Mountain_Bike WHERE Category = 'Acc
       <img src="img/CP-Bike.png" class="hero__image">
       <h1 class="hero__title"><a href="/2505Chartreuse/index_manager.php">TRON Bike Shop – Manager Portal</a></h1>
       <h2 class="hero__menu">
-        <a href="add_product.php">Add Product</a>
+        <a href="add_product.php">Add Product</a> |
         <a href="/2505Chartreuse/hardtail_manager.php">Manage Hardtails</a> |
         <a href="/2505Chartreuse/fullsuspension_manager.php">Manage Full Suspension</a> |
         <a href="/2505Chartreuse/accessories_manager.php">Manage Accessories</a> |
