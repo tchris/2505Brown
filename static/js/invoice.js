@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const res = await fetch(`check_promo.php?code=${encodeURIComponent(code)}`);
     const data = await res.json();
 
+
     if (data.valid) {
       const discountPct = parseFloat(data.discount_pct);
       const subtotal = parseFloat(document.querySelector('input[name="subtotal"]').value);
