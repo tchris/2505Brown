@@ -47,7 +47,7 @@ function generateInvoicePDF($order_id, $customer_name) {
             $discountRow = "
                 <tr class='totals'>
                     <td colspan='3'>Discount ({$pct}%)</td>
-                    <td style='color:red;'>−$" . number_format($discount, 2) . "</td>
+                    <td>-$<?= number_format($discount_amount, 2) ?></td>
                 </tr>";
         }
     }
