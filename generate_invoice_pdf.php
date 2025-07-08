@@ -1,17 +1,15 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-require_once 'database.php'; // Safe to include now due to guard clauses below
+require_once 'database.php';
 
 use Dompdf\Dompdf;
 
-// Safe constant definitions to avoid "already defined" warnings
 if (!defined('HOST'))     define('HOST', 'your_host');
 if (!defined('USER'))     define('USER', 'your_user');
 if (!defined('PASSWORD')) define('PASSWORD', 'your_password');
 if (!defined('DATABASE')) define('DATABASE', 'your_database');
 
-// Ensure mysqli connection exists
 $mysqli = $mysqli ?? new mysqli(HOST, USER, PASSWORD, DATABASE);
 if ($mysqli->connect_error) {
     die("Database connection failed: " . $mysqli->connect_error);
@@ -20,18 +18,14 @@ if ($mysqli->connect_error) {
 function generateInvoicePDF($order_id, $customer_name) {
     global $mysqli;
 
-    // Fetch invoice details
+    // Fetch invoice
     $stmt = $mysqli->prepare("SELECT * FROM invoice WHERE inv_id = ?");
-    if (!$stmt) {
-        die("Prepare failed: " . $mysqli->error);
-    }
-
     $stmt->bind_param("i", $order_id);
     $stmt->execute();
     $invoice = $stmt->get_result()->fetch_assoc();
     $stmt->close();
 
-    // Fetch invoice line items
+    // Fetch items
     $stmt_items = $mysqli->prepare("
         SELECT m.name, p.qty, m.price 
         FROM invoice_products p 
@@ -43,7 +37,21 @@ function generateInvoicePDF($order_id, $customer_name) {
     $result_items = $stmt_items->get_result();
     $stmt_items->close();
 
-    // Build HTML
+    $discount = 0;
+    $discountRow = '';
+    if (!empty($invoice['subtotal']) && !empty($invoice['total'])) {
+        $raw_total = $invoice['subtotal'] * 1.08; // 8% tax without discount
+        $discount = $raw_total - floatval($invoice['total']);
+        if ($discount > 0.01) {
+            $pct = round(($discount / $invoice['subtotal']) * 100, 2);
+            $discountRow = "
+                <tr class='totals'>
+                    <td colspan='3'>Discount ({$pct}%)</td>
+                    <td style='color:red;'>−$" . number_format($discount, 2) . "</td>
+                </tr>";
+        }
+    }
+
     ob_start(); ?>
     <!DOCTYPE html>
     <html>
@@ -52,21 +60,30 @@ function generateInvoicePDF($order_id, $customer_name) {
         <title>Invoice #<?= $order_id ?></title>
         <style>
             body { font-family: Arial, sans-serif; font-size: 14px; }
-            h1 { text-align: center; }
+            h1, h2 { text-align: center; }
             table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-            th, td { padding: 8px; border: 1px solid #ccc; text-align: left; }
-            .right { text-align: right; }
+            th, td { padding: 8px; border: 1px solid #ccc; }
             .totals td { font-weight: bold; }
         </style>
     </head>
     <body>
         <h1>Invoice #<?= $order_id ?></h1>
         <p><strong>Date:</strong> <?= $invoice['inv_date'] ?></p>
-        <p><strong>Ship To:</strong><br>
-           <?= htmlspecialchars($invoice['sname']) ?><br>
-           <?= htmlspecialchars($invoice['saddy']) ?><br>
-           <?= htmlspecialchars($invoice['scity']) ?>, <?= htmlspecialchars($invoice['sstate']) ?> <?= htmlspecialchars($invoice['szip']) ?><br>
-           <?= htmlspecialchars($invoice['semail']) ?> | <?= htmlspecialchars($invoice['sphone']) ?>
+
+        <h2>Bill To</h2>
+        <p>
+            <?= htmlspecialchars($invoice['cname']) ?><br>
+            <?= htmlspecialchars($invoice['caddy']) ?><br>
+            <?= htmlspecialchars($invoice['ccity']) ?>, <?= htmlspecialchars($invoice['cstate']) ?> <?= htmlspecialchars($invoice['czip']) ?><br>
+            <?= htmlspecialchars($invoice['cemail']) ?> | <?= htmlspecialchars($invoice['cphone']) ?>
+        </p>
+
+        <h2>Ship To</h2>
+        <p>
+            <?= htmlspecialchars($invoice['sname']) ?><br>
+            <?= htmlspecialchars($invoice['saddy']) ?><br>
+            <?= htmlspecialchars($invoice['scity']) ?>, <?= htmlspecialchars($invoice['sstate']) ?> <?= htmlspecialchars($invoice['szip']) ?><br>
+            <?= htmlspecialchars($invoice['semail']) ?> | <?= htmlspecialchars($invoice['sphone']) ?>
         </p>
 
         <h2>Order Summary</h2>
@@ -92,6 +109,7 @@ function generateInvoicePDF($order_id, $customer_name) {
                     <td colspan="3">Subtotal</td>
                     <td>$<?= number_format($invoice['subtotal'], 2) ?></td>
                 </tr>
+                <?= $discountRow ?>
                 <tr class="totals">
                     <td colspan="3">Sales Tax</td>
                     <td>$<?= number_format($invoice['tax'], 2) ?></td>
@@ -107,7 +125,6 @@ function generateInvoicePDF($order_id, $customer_name) {
     <?php
     $html = ob_get_clean();
 
-    // Generate PDF
     $dompdf = new Dompdf();
     $dompdf->loadHtml($html);
     $dompdf->setPaper('letter', 'portrait');
