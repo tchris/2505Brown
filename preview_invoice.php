@@ -204,7 +204,7 @@ $total = $subtotal + $tax;
     <input type="hidden" name="discount_amount" id="discount_amount" value="0">
     <input type="hidden" name="subtotal" value="<?= htmlspecialchars($subtotal) ?>">
     <input type="hidden" name="tax" value="<?= htmlspecialchars($tax) ?>">
-    <input type="hidden" name="total" value="<?= htmlspecialchars($total) ?>">
+    <input type="hidden" name="total" id="total" value="<?= htmlspecialchars($total) ?>">
 
     <div class="button-container">
       <button type="submit" class="confirm-button">SUBMIT ORDER</button>
