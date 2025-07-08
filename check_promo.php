@@ -1,7 +1,8 @@
+
 <?php
 require 'database.php';
 header('Content-Type: application/json');
-
+/*
 // Check for DB connection issues first
 if ($mysqli->connect_error) {
     echo json_encode([

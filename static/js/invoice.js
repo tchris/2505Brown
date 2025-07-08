@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+ /*
     // ✅ --- Discount Logic ---
     const applyBtn = document.getElementById('applyDiscount');
     if (applyBtn) {
@@ -77,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    */
 
     // --- Clear sessionStorage on submit ---
     const form = document.querySelector('form');
