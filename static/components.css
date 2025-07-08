@@ -368,6 +368,11 @@ input {
     width: 100%; /* Ensures input fills its parent */
 }
 
+#total_display,
+#discount_amount_display {
+  font-weight: bold;
+}
+
 /*Radio Button (Same as billing) style */
 
 .copyBilling {

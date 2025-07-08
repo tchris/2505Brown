@@ -185,15 +185,19 @@ $total = $subtotal + $tax;
           <?php endforeach; ?>
           <tr class="total-row">
             <td colspan="3">Subtotal</td>
-            <td>$<?= number_format($subtotal, 2) ?></td>
+            <td id="subtotal_display">$<?= number_format($subtotal, 2) ?></td>
+          </tr>
+          <tr class="total-row" id="discount_row" style="display:none;">
+            <td colspan="3">Discount (<span id="discount_pct_display">0</span>%)</td>
+            <td id="discount_amount_display">−$0.00</td>
           </tr>
           <tr class="total-row">
             <td colspan="3">Sales Tax (8%)</td>
-            <td>$<?= number_format($tax, 2) ?></td>
+            <td id="tax_display">$<?= number_format($tax, 2) ?></td>
           </tr>
           <tr class="total-row">
             <td colspan="3">Total</td>
-            <td>$<?= number_format($total, 2) ?></td>
+            <td id="total_display">$<?= number_format($total, 2) ?></td>
           </tr>
         </tbody>
       </table>

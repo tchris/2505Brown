@@ -65,6 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById('discount_amount').value = discountAmount;
                     document.getElementById('total').value = newTotal;
 
+                    // Show and update discount row
+                    document.getElementById('discount_row').style.display = 'table-row';
+                    document.getElementById('discount_pct_display').textContent = discountPct;
+                    document.getElementById('discount_amount_display').textContent = `−$${discountAmount.toFixed(2)}`;
+
+                    // Update total and tax displays
+                    document.getElementById('tax_display').textContent = `$${tax.toFixed(2)}`;
+                    document.getElementById('total_display').textContent = `$${newTotal.toFixed(2)}`;
+
                     status.textContent = `✅ ${discountPct}% discount applied!`;
                     status.style.color = "green";
                 } else {
