@@ -1,3 +1,5 @@
+console.log("✅ invoice.js loaded");
+
 // Define globally so all blocks can access it
 const fieldsToWatch = [
     'cname', 'caddy', 'ccity', 'cstate', 'czip', 'cphone', 'cemail',
