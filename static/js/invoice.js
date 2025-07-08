@@ -46,43 +46,56 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add logic to handle applying discounts
 
     document.getElementById('applyDiscount').addEventListener('click', async () => {
-  const code = document.getElementById('discount_code').value.trim();
-  const status = document.getElementById('discountStatus');
-  if (!code) {
-    status.textContent = "⚠️ Enter a code first.";
-    status.style.color = "orange";
-    return;
-  }
+        console.log("Apply button clicked");
 
-  try {
-    const res = await fetch(`check_promo.php?code=${encodeURIComponent(code)}`);
-    const data = await res.json();
+        const code = document.getElementById('discount_code').value.trim();
+        const status = document.getElementById('discountStatus');
+        console.log("Code entered:", code);
 
+        if (!code) {
+            status.textContent = "⚠️ Enter a code first.";
+            status.style.color = "orange";
+            return;
+        }
 
-    if (data.valid) {
-      const discountPct = parseFloat(data.discount_pct);
-      const subtotal = parseFloat(document.querySelector('input[name="subtotal"]').value);
-      const discountAmount = +(subtotal * discountPct / 100).toFixed(2);
-      const tax = +(subtotal * 0.08).toFixed(2);
-      const newTotal = +(subtotal - discountAmount + tax).toFixed(2);
+        try {
+            const res = await fetch(`check_promo.php?code=${encodeURIComponent(code)}`);
+            const data = await res.json();
+            console.log("Response from check_promo.php:", data);
 
-      // Update form hidden fields
-      document.getElementById('discount_pct').value = discountPct;
-      document.getElementById('discount_amount').value = discountAmount;
-      document.getElementById('total').value = newTotal;
+            if (data.valid) {
+            const discountPct = parseFloat(data.discount_pct);
+            const subtotalInput = document.querySelector('input[name="subtotal"]');
+            const subtotal = parseFloat(subtotalInput?.value || 0);
+            console.log("Parsed subtotal:", subtotal);
 
-      // Display success
-      status.textContent = `✅ ${discountPct}% discount applied!`;
-      status.style.color = "green";
-    } else {
-      status.textContent = "❌ Invalid or expired code.";
-      status.style.color = "red";
-    }
-  } catch (err) {
-    status.textContent = "⚠️ Error checking code.";
-    status.style.color = "red";
-  }
-});
+            const discountAmount = +(subtotal * discountPct / 100).toFixed(2);
+            const tax = +(subtotal * 0.08).toFixed(2);
+            const newTotal = +(subtotal - discountAmount + tax).toFixed(2);
+            console.log("Discount amount:", discountAmount, "New total:", newTotal);
+
+            // Update hidden fields
+            document.getElementById('discount_pct').value = discountPct;
+            document.getElementById('discount_amount').value = discountAmount;
+            document.getElementById('total').value = newTotal;
+
+            // Update visible total if you add this to HTML
+            const visibleTotal = document.getElementById('visibleTotal');
+            if (visibleTotal) visibleTotal.textContent = `$${newTotal.toFixed(2)}`;
+
+            status.textContent = `✅ ${discountPct}% discount applied!`;
+            status.style.color = "green";
+            } else {
+            status.textContent = "❌ Invalid or expired code.";
+            status.style.color = "red";
+            }
+        } catch (err) {
+            console.error("Fetch failed:", err);
+            status.textContent = "⚠️ Error checking code.";
+            status.style.color = "red";
+        }
+    });
+
 
     // Clear saved sessionStorage on form submit
     const form = document.querySelector('form');
