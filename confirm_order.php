@@ -31,11 +31,11 @@ $sphone  = $_POST['sphone'];
 $semail  = $_POST['semail'];
 
 // Pull final calculated amounts from POST (trust preview page)
-$discount_pct    = $_POST['discount_pct'] ?? 0;
+$discount_pct = $_POST['discount_pct'] ?? 0;
 $discount_amount = $_POST['discount_amount'] ?? 0;
-$subtotal        = $_POST['subtotal'];
-$tax             = $_POST['tax'];
-$total           = $_POST['total'];
+$subtotal = $_POST['subtotal'];
+$tax = $_POST['tax'];
+$total = $_POST['total'];
 
 // Pull cart data for line items
 $bike_ids = implode(',', array_map('intval', array_keys($cart)));
@@ -55,21 +55,19 @@ while ($bike = $result->fetch_assoc()) {
     ];
 }
 
-// Insert invoice with tax and discount fields
+// Insert invoice with tax
 $stmt = $mysqli->prepare("
     INSERT INTO invoice 
     (inv_date, ship_date, cname, caddy, ccity, cstate, czip, cphone, cemail, 
-     sname, saddy, scity, sstate, szip, sphone, semail, 
-     subtotal, discount_pct, discount_amount, tax, total) 
+     sname, saddy, scity, sstate, szip, sphone, semail, subtotal, tax, total) 
     VALUES 
-    (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-     ?, ?, ?, ?, ?)
+    (CURDATE(), CURDATE() + INTERVAL 2 DAY, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
 
-$stmt->bind_param("ssssssssssssssdddddd",
+$stmt->bind_param("ssssssssssssssddd",
     $cname, $caddy, $ccity, $cstate, $czip, $cphone, $cemail,
     $sname, $saddy, $scity, $sstate, $szip, $sphone, $semail,
-    $subtotal, $discount_pct, $discount_amount, $tax, $total
+    $subtotal, $tax, $total
 );
 
 $stmt->execute();
@@ -104,7 +102,7 @@ unset($_SESSION['cart']);
 </head>
 <body>
   <!-- Hero Wrapper -->
-  <?php include 'templates/hero.php'; ?>
+        <?php include 'templates/hero.php'; ?>
 
   <main class="invoice-box">
     <h1>Thank You for Your Order!</h1>
@@ -175,7 +173,7 @@ unset($_SESSION['cart']);
   </main>
   <hr class="cyberpunk-hr">
 
-  <!-- Footer -->
-  <?php include 'templates/footer.php'; ?>
+            <!-- Footer -->
+            <?php include 'templates/footer.php'; ?>
 </body>
 </html>
