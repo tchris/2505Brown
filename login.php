@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// If already logged in, redirect
+//Redirect if already logged in
 if (isset($_SESSION['manager_logged_in'])) {
     header('Location: manager.php');
     exit;
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    // Replace with your real manager credentials
+    // Manager Credentials
     $valid_username = 'admin';
     $valid_password = 'TestTest123!@#';
 

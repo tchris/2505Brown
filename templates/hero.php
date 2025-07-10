@@ -1,3 +1,4 @@
+  <!-- Hero Banner -->
  <div class="hero">
             <img src="img/CP-Bike.png" class="hero__image">
             <h2 class="cart__menu"><a href="/2505Chartreuse/cart.php"><img src="img/tron_cart.png" alt="Cart" class="cart__icon"></a></h2>
